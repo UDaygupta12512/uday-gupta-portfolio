@@ -36,15 +36,15 @@ const Layout = () => {
       </main>
       <Footer />
       
-      {showBackToTop && (
+      <div className={`fixed bottom-8 right-8 transition-all duration-300 z-50 ${showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <button 
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-portfolio-blue p-3 rounded-full shadow-lg hover:bg-portfolio-light-blue transition-colors z-50"
+          className="bg-portfolio-blue p-3 rounded-full shadow-lg hover:bg-portfolio-light-blue transition-colors transform hover:scale-110 hover:shadow-xl active:scale-95"
           aria-label="Back to top"
         >
           <ArrowUp className="h-5 w-5 text-white" />
         </button>
-      )}
+      </div>
     </div>
   );
 };
