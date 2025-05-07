@@ -1,5 +1,6 @@
 
 import { Link } from 'react-router-dom';
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Home = () => {
   return (
@@ -36,11 +37,15 @@ const Home = () => {
           
           <div className="flex justify-center md:justify-end fade-in delay-200">
             <div className="relative">
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-portfolio-blue">
-                {/* Placeholder for profile picture */}
-                <div className="w-full h-full flex items-center justify-center bg-muted">
-                  <span className="text-5xl font-bold">UG</span>
-                </div>
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-portfolio-blue shadow-xl">
+                <Avatar className="w-full h-full">
+                  <AvatarImage 
+                    src="/lovable-uploads/45012b50-f341-44fe-a3a7-73ebcf916cd5.png" 
+                    alt="Uday Gupta" 
+                    className="object-cover w-full h-full"
+                  />
+                  <AvatarFallback className="text-5xl font-bold">UG</AvatarFallback>
+                </Avatar>
               </div>
               <div className="absolute -bottom-6 -right-6 bg-portfolio-dark-blue p-4 rounded-lg shadow-lg">
                 <div className="text-xl font-bold">Computer Science</div>
