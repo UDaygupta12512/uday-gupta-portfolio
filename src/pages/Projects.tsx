@@ -8,6 +8,7 @@ import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/comp
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useSpring, animated } from '@react-spring/three';
 import { Text, Float, Environment, PresentationControls } from '@react-three/drei';
+import * as THREE from 'three';
 
 interface Project {
   title: string;
@@ -18,7 +19,14 @@ interface Project {
   color: string;
 }
 
-const ProjectShape = ({ position, color, hover, onClick }: { position: [number, number, number], color: string, hover: boolean, onClick: () => void }) => {
+interface ProjectShapeProps {
+  position: [number, number, number];
+  color: string;
+  hover: boolean;
+  onClick: () => void;
+}
+
+const ProjectShape = ({ position, color, hover, onClick }: ProjectShapeProps) => {
   const mesh = useRef<THREE.Mesh>(null);
   
   const props = useSpring({
@@ -43,7 +51,11 @@ const ProjectShape = ({ position, color, hover, onClick }: { position: [number, 
       onClick={onClick}
     >
       <boxGeometry args={[2, 2, 2]} />
-      <meshStandardMaterial color={color} roughness={0.5} metalness={0.8} />
+      <meshStandardMaterial 
+        color={color} 
+        roughness={0.5} 
+        metalness={0.8} 
+      />
     </animated.mesh>
   );
 };
