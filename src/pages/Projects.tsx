@@ -3,6 +3,7 @@ import SectionHeading from '../components/SectionHeading';
 import { Github, ExternalLink, Code } from 'lucide-react';
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
 
 interface Project {
   title: string;
@@ -20,7 +21,7 @@ const Projects = () => {
       description: "An interactive tool that visualizes various sorting algorithms in action, helping users understand how different sorting methods work and compare their performance.",
       technologies: ["Python", "Pygame", "Tkinter"],
       githubLink: "https://github.com/UDaygupta12512/sorting-visualizer",
-      image: "/placeholder.svg"
+      image: "/lovable-uploads/45012b50-f341-44fe-a3a7-73ebcf916cd5.png"
     },
     {
       title: "Weather App",
@@ -28,7 +29,7 @@ const Projects = () => {
       technologies: ["ReactJS", "NodeJS", "Weather API"],
       githubLink: "https://github.com/UDaygupta12512/weather-app",
       liveLink: "#",
-      image: "/placeholder.svg"
+      image: "/lovable-uploads/748a85d5-a7bd-421e-87e8-9fea482245a7.png"
     },
     {
       title: "News App",
@@ -51,51 +52,63 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card 
               key={index} 
-              className="glass-card overflow-hidden rounded-xl transition-all duration-300 hover:translate-y-[-8px] hover:shadow-xl border-white/5 bg-white/5 backdrop-blur-sm fade-in"
+              className="glass-card overflow-hidden rounded-xl transition-all duration-300 hover:translate-y-[-12px] hover:shadow-2xl border-white/5 bg-white/5 backdrop-blur-sm fade-in group"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              <div className="aspect-video bg-gradient-to-br from-portfolio-dark-blue/90 to-portfolio-blue/20 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Code className="h-16 w-16 text-portfolio-light-blue/30" />
-                </div>
+              <div className="aspect-video relative overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ease-in-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-portfolio-dark-blue/90 to-transparent flex items-end">
+                <div className="absolute inset-0 bg-gradient-to-t from-portfolio-dark-blue/95 via-portfolio-dark-blue/60 to-transparent flex items-end transition-opacity">
                   <div className="p-4 w-full flex justify-between">
                     <div className="flex gap-3">
-                      <a 
-                        href={project.githubLink} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="bg-portfolio-blue p-2 rounded-full hover:bg-portfolio-light-blue transition-all transform hover:scale-110"
-                        aria-label={`GitHub repository for ${project.title}`}
-                      >
-                        <Github className="h-5 w-5 text-white" />
-                      </a>
+                      <HoverCard>
+                        <HoverCardTrigger asChild>
+                          <a 
+                            href={project.githubLink} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="bg-portfolio-blue p-2 rounded-full hover:bg-portfolio-light-blue transition-all transform hover:scale-110 flex items-center justify-center"
+                            aria-label={`GitHub repository for ${project.title}`}
+                          >
+                            <Github className="h-5 w-5 text-white" />
+                          </a>
+                        </HoverCardTrigger>
+                        <HoverCardContent className="bg-portfolio-dark-blue/90 backdrop-blur-md border-white/10 text-white">
+                          View GitHub Repository
+                        </HoverCardContent>
+                      </HoverCard>
+                      
                       {project.liveLink && (
-                        <a 
-                          href={project.liveLink} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="bg-portfolio-blue p-2 rounded-full hover:bg-portfolio-light-blue transition-all transform hover:scale-110"
-                          aria-label={`Live demo for ${project.title}`}
-                        >
-                          <ExternalLink className="h-5 w-5 text-white" />
-                        </a>
+                        <HoverCard>
+                          <HoverCardTrigger asChild>
+                            <a 
+                              href={project.liveLink} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="bg-portfolio-blue p-2 rounded-full hover:bg-portfolio-light-blue transition-all transform hover:scale-110 flex items-center justify-center"
+                              aria-label={`Live demo for ${project.title}`}
+                            >
+                              <ExternalLink className="h-5 w-5 text-white" />
+                            </a>
+                          </HoverCardTrigger>
+                          <HoverCardContent className="bg-portfolio-dark-blue/90 backdrop-blur-md border-white/10 text-white">
+                            View Live Demo
+                          </HoverCardContent>
+                        </HoverCard>
                       )}
                     </div>
-                    <div className="bg-portfolio-blue/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium">
+                    <div className="bg-portfolio-blue/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-white">
                       Project
                     </div>
                   </div>
                 </div>
               </div>
               
-              <CardContent className="p-6 space-y-4">
-                <h3 className="text-2xl font-bold gradient-text">{project.title}</h3>
+              <CardContent className="p-6 space-y-4 relative group">
+                <h3 className="text-2xl font-bold gradient-text group-hover:bg-gradient-to-r group-hover:from-portfolio-light-blue group-hover:to-white transition-all duration-300">{project.title}</h3>
                 <p className="text-muted-foreground">{project.description}</p>
                 <div className="pt-2">
                   <h4 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Technologies</h4>
@@ -104,7 +117,7 @@ const Projects = () => {
                       <Badge 
                         key={i}
                         variant="secondary"
-                        className="bg-white/10 hover:bg-white/20 text-white border-none"
+                        className="bg-white/10 hover:bg-portfolio-blue/50 text-white border-none transition-colors"
                       >
                         {tech}
                       </Badge>
