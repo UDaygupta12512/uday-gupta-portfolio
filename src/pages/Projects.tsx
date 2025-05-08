@@ -4,6 +4,7 @@ import { Github, ExternalLink, Code } from 'lucide-react';
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
 
 interface Project {
   title: string;
@@ -36,7 +37,7 @@ const Projects = () => {
       description: "A dynamic news aggregation platform that delivers the latest updates across various categories. Features include live news updates, content filtering, and article search functionality.",
       technologies: ["ReactJS", "API Integration", "JavaScript"],
       githubLink: "https://github.com/UDaygupta12512/news-app",
-      image: "/placeholder.svg"
+      image: "/lovable-uploads/748a85d5-a7bd-421e-87e8-9fea482245a7.png"
     }
   ];
 
@@ -64,40 +65,44 @@ const Projects = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-portfolio-dark-blue/95 via-portfolio-dark-blue/60 to-transparent flex items-end transition-opacity">
                   <div className="p-4 w-full flex justify-between">
                     <div className="flex gap-3">
-                      <HoverCard>
-                        <HoverCardTrigger asChild>
-                          <a 
-                            href={project.githubLink} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="bg-portfolio-blue p-2 rounded-full hover:bg-portfolio-light-blue transition-all transform hover:scale-110 flex items-center justify-center"
-                            aria-label={`GitHub repository for ${project.title}`}
-                          >
-                            <Github className="h-5 w-5 text-white" />
-                          </a>
-                        </HoverCardTrigger>
-                        <HoverCardContent className="bg-portfolio-dark-blue/90 backdrop-blur-md border-white/10 text-white">
-                          View GitHub Repository
-                        </HoverCardContent>
-                      </HoverCard>
-                      
-                      {project.liveLink && (
-                        <HoverCard>
-                          <HoverCardTrigger asChild>
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
                             <a 
-                              href={project.liveLink} 
+                              href={project.githubLink} 
                               target="_blank" 
                               rel="noopener noreferrer"
                               className="bg-portfolio-blue p-2 rounded-full hover:bg-portfolio-light-blue transition-all transform hover:scale-110 flex items-center justify-center"
-                              aria-label={`Live demo for ${project.title}`}
+                              aria-label={`GitHub repository for ${project.title}`}
                             >
-                              <ExternalLink className="h-5 w-5 text-white" />
+                              <Github className="h-5 w-5 text-white" />
                             </a>
-                          </HoverCardTrigger>
-                          <HoverCardContent className="bg-portfolio-dark-blue/90 backdrop-blur-md border-white/10 text-white">
-                            View Live Demo
-                          </HoverCardContent>
-                        </HoverCard>
+                          </TooltipTrigger>
+                          <TooltipContent className="bg-portfolio-dark-blue/90 backdrop-blur-md border-white/10 text-white">
+                            View GitHub Repository
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                      
+                      {project.liveLink && (
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <a 
+                                href={project.liveLink} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="bg-portfolio-blue p-2 rounded-full hover:bg-portfolio-light-blue transition-all transform hover:scale-110 flex items-center justify-center"
+                                aria-label={`Live demo for ${project.title}`}
+                              >
+                                <ExternalLink className="h-5 w-5 text-white" />
+                              </a>
+                            </TooltipTrigger>
+                            <TooltipContent className="bg-portfolio-dark-blue/90 backdrop-blur-md border-white/10 text-white">
+                              View Live Demo
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
                       )}
                     </div>
                     <div className="bg-portfolio-blue/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-white">
