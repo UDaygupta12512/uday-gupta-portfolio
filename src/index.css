@@ -228,3 +228,63 @@
     transform: translateY(-10px) rotateY(10deg) rotateX(10deg);
   }
 }
+
+@layer components {
+  /* Enhanced Animation Classes */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-subtle {
+    animation: pulse-subtle 4s ease-in-out infinite;
+  }
+  
+  .animate-rotate {
+    animation: rotate 10s linear infinite;
+  }
+  
+  .animate-bounce-subtle {
+    animation: bounce-subtle 2s ease-in-out infinite;
+  }
+  
+  .hover-lift-rotate {
+    @apply transition-all duration-500;
+  }
+  
+  .hover-lift-rotate:hover {
+    @apply -translate-y-2 rotate-3 shadow-xl;
+  }
+  
+  .hover-glow:hover {
+    text-shadow: 0 0 10px rgba(96, 165, 250, 0.7);
+    box-shadow: 0 0 15px rgba(96, 165, 250, 0.3);
+  }
+  
+  /* Enhanced 3D Effects */
+  .card-3d-deep {
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+  }
+  
+  .card-3d-deep:hover {
+    transform: translateY(-15px) rotateX(10deg) rotateY(10deg) scale(1.05);
+  }
+  
+  /* New Animation Keyframes */
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes pulse-subtle {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.03); opacity: 0.9; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes bounce-subtle {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+  }
+}
