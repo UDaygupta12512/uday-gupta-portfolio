@@ -1,6 +1,7 @@
 
 import SectionHeading from '../components/SectionHeading';
-import { FileText } from 'lucide-react';
+import { FileText, GraduationCap, Award, Briefcase } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 const About = () => {
   return (
@@ -12,12 +13,41 @@ const About = () => {
         />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="fade-in glass-card p-6">
-            <img 
-              src="/public/lovable-uploads/748a85d5-a7bd-421e-87e8-9fea482245a7.png" 
-              alt="Portfolio Template" 
-              className="w-full rounded-lg"
-            />
+          <div className="fade-in space-y-6">
+            <div className="glass-card p-6 border border-white/10 rounded-xl">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="bg-portfolio-blue/20 p-3 rounded-full">
+                  <GraduationCap className="h-6 w-6 text-portfolio-light-blue" />
+                </div>
+                <h3 className="text-xl font-semibold">Education</h3>
+              </div>
+              <p className="text-muted-foreground">B.Tech in Computer Science at Meerut Institute of Engineering and Technology with minor in AI from IIT Ropar.</p>
+              <Badge className="mt-2 bg-portfolio-blue/20 text-portfolio-light-blue hover:bg-portfolio-blue/30 border-none">CGPA: 8.5</Badge>
+            </div>
+            
+            <div className="glass-card p-6 border border-white/10 rounded-xl">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="bg-portfolio-blue/20 p-3 rounded-full">
+                  <Award className="h-6 w-6 text-portfolio-light-blue" />
+                </div>
+                <h3 className="text-xl font-semibold">Achievements</h3>
+              </div>
+              <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                <li>Participated in national-level hackathons</li>
+                <li>Won 2nd place in college coding competition</li>
+                <li>Completed multiple certification courses</li>
+              </ul>
+            </div>
+            
+            <div className="glass-card p-6 border border-white/10 rounded-xl">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="bg-portfolio-blue/20 p-3 rounded-full">
+                  <Briefcase className="h-6 w-6 text-portfolio-light-blue" />
+                </div>
+                <h3 className="text-xl font-semibold">Experience</h3>
+              </div>
+              <p className="text-muted-foreground">Eager to apply my knowledge and skills in a challenging professional environment.</p>
+            </div>
           </div>
           
           <div className="fade-in">
