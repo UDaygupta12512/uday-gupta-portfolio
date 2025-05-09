@@ -21,7 +21,9 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
         <AnimatedElement animation="fade-up" duration={800}>
           <h2 className="text-3xl md:text-4xl font-bold mb-3 relative inline-block">
             <span className="gradient-text">{title}</span>
-            <AnimatedElement animation="fade-left" delay={400} duration={1000} className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-portfolio-blue to-portfolio-light-blue transform scale-x-50 origin-left" />
+            <AnimatedElement animation="fade-left" delay={400} duration={1000}>
+              <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-portfolio-blue to-portfolio-light-blue transform scale-x-50 origin-left" />
+            </AnimatedElement>
           </h2>
           {subtitle && (
             <AnimatedElement animation="fade-up" delay={200} duration={800}>
