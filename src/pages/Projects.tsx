@@ -6,7 +6,6 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useSpring, animated } from '@react-spring/three';
 import { Float, Environment, PresentationControls, Text3D, Center } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -30,23 +29,24 @@ interface ProjectShapeProps {
 const ProjectShape = ({ position, color, hover, onClick, index }: ProjectShapeProps) => {
   const mesh = useRef<THREE.Mesh>(null);
   
-  const props = useSpring({
-    scale: hover ? [1.2, 1.2, 1.2] : [1, 1, 1],
-    position,
-    rotation: hover ? [0, Math.PI / 3, 0] : [0, 0, 0],
-    config: { mass: 1, tension: 280, friction: 60 }
-  });
-  
-  useFrame((state) => {
+  // Use useEffect instead of useFrame for basic animations to avoid potential compatibility issues
+  useEffect(() => {
     if (!hover && mesh.current) {
-      // Create different animation patterns based on index
-      const time = state.clock.getElapsedTime();
-      mesh.current.rotation.x = Math.sin(time * 0.2 + index * 0.5) * 0.2;
-      mesh.current.rotation.y += 0.01 + (index * 0.002);
-      mesh.current.rotation.z = Math.cos(time * 0.3 + index * 0.2) * 0.1;
+      const animate = () => {
+        if (mesh.current) {
+          // Create different animation patterns based on index
+          const time = performance.now() * 0.001; // Convert to seconds
+          mesh.current.rotation.x = Math.sin(time * 0.2 + index * 0.5) * 0.2;
+          mesh.current.rotation.y += 0.005 + (index * 0.001);
+          mesh.current.rotation.z = Math.cos(time * 0.3 + index * 0.2) * 0.1;
+          
+          // Subtle position animation
+          mesh.current.position.y = position[1] + Math.sin(time * 0.5 + index) * 0.2;
+        }
+      };
       
-      // Subtle position animation
-      mesh.current.position.y = Math.sin(time * 0.5 + index) * 0.2;
+      const animationFrame = requestAnimationFrame(animate);
+      return () => cancelAnimationFrame(animationFrame);
     }
   });
 
@@ -64,12 +64,12 @@ const ProjectShape = ({ position, color, hover, onClick, index }: ProjectShapePr
     }
   };
 
+  // Simplify the component to avoid complex state transitions
   return (
-    <animated.mesh 
+    <mesh
       ref={mesh}
-      position={props.position as any}
-      scale={props.scale as any}
-      rotation={props.rotation as any}
+      position={position}
+      scale={hover ? 1.2 : 1}
       onClick={onClick}
     >
       {renderGeometry()}
@@ -77,9 +77,8 @@ const ProjectShape = ({ position, color, hover, onClick, index }: ProjectShapePr
         color={color} 
         roughness={0.5} 
         metalness={0.8}
-        toneMapped={true}
       />
-    </animated.mesh>
+    </mesh>
   );
 };
 
@@ -119,6 +118,13 @@ const Projects = () => {
     }
   ];
 
+  // Error handling for 3D canvas
+  const [canvasError, setCanvasError] = useState(false);
+  const handleCanvasError = () => {
+    console.error("Canvas error detected - falling back to 2D view");
+    setCanvasError(true);
+  };
+
   return (
     <section id="projects" className="section-padding pt-28 md:pt-36">
       <div className="container">
@@ -127,40 +133,54 @@ const Projects = () => {
           subtitle="Explore some of my recent work and personal projects"
         />
         
-        <div className="h-[400px] w-full mb-16 transition-all duration-700 scale-y-100 opacity-100"
-             style={{ 
-               transform: visible ? 'translateY(0) scale(1)' : 'translateY(50px) scale(0.95)',
-               opacity: visible ? 1 : 0,
-             }}>
-          <Canvas camera={{ position: [0, 0, 15], fov: 40 }}>
-            <ambientLight intensity={0.6} />
-            <pointLight position={[10, 10, 10]} intensity={1.2} />
-            <directionalLight position={[-5, 5, 5]} intensity={0.8} color="#ffffff" />
-            <fog attach="fog" args={['#101020', 10, 30]} />
-            <PresentationControls
-              global
-              rotation={[0, 0, 0]}
-              polar={[-Math.PI / 4, Math.PI / 4]}
-              azimuth={[-Math.PI / 4, Math.PI / 4]}
-              config={{ mass: 2, tension: 400 }}
-              snap={{ mass: 4, tension: 300 }}
-            >
-              <Float rotationIntensity={0.4} speed={3} floatIntensity={1.5}>
-                {projects.map((project, index) => (
-                  <ProjectShape
-                    key={index}
-                    position={[(index - 1) * 4.5, 0, 0]}
-                    color={project.color}
-                    hover={hoveredIndex === index}
-                    onClick={() => setSelectedProject(index)}
-                    index={index}
-                  />
-                ))}
-              </Float>
-            </PresentationControls>
-            <Environment preset="city" />
-          </Canvas>
-        </div>
+        {!canvasError ? (
+          <div 
+            className="h-[400px] w-full mb-16 transition-all duration-700 scale-y-100 opacity-100"
+            style={{ 
+              transform: visible ? 'translateY(0) scale(1)' : 'translateY(50px) scale(0.95)',
+              opacity: visible ? 1 : 0,
+            }}
+          >
+            <ErrorBoundary onError={handleCanvasError}>
+              <Canvas 
+                camera={{ position: [0, 0, 15], fov: 40 }}
+                dpr={[1, 2]} // Control pixel ratio for performance
+                gl={{ antialias: true, alpha: true }}
+              >
+                <ambientLight intensity={0.6} />
+                <pointLight position={[10, 10, 10]} intensity={1.2} />
+                <directionalLight position={[-5, 5, 5]} intensity={0.8} color="#ffffff" />
+                <fog attach="fog" args={['#101020', 10, 30]} />
+                <PresentationControls
+                  global
+                  rotation={[0, 0, 0]}
+                  polar={[-Math.PI / 4, Math.PI / 4]}
+                  azimuth={[-Math.PI / 4, Math.PI / 4]}
+                  config={{ mass: 2, tension: 400 }}
+                  snap={{ mass: 4, tension: 300 }}
+                >
+                  <Float rotationIntensity={0.4} speed={3} floatIntensity={1.5}>
+                    {projects.map((project, index) => (
+                      <ProjectShape
+                        key={index}
+                        position={[(index - 1) * 4.5, 0, 0]}
+                        color={project.color}
+                        hover={hoveredIndex === index}
+                        onClick={() => setSelectedProject(index)}
+                        index={index}
+                      />
+                    ))}
+                  </Float>
+                </PresentationControls>
+                <Environment preset="city" />
+              </Canvas>
+            </ErrorBoundary>
+          </div>
+        ) : (
+          <div className="h-[100px] mb-16 flex items-center justify-center">
+            <p className="text-muted-foreground">3D view unavailable - showing projects below</p>
+          </div>
+        )}
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
@@ -258,5 +278,32 @@ const Projects = () => {
     </section>
   );
 };
+
+// Error Boundary Component for Canvas
+class ErrorBoundary extends React.Component<{ 
+  children: React.ReactNode; 
+  onError?: () => void;
+}> {
+  state = { hasError: false };
+  
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  
+  componentDidCatch(error: any) {
+    console.error("Three.js Canvas Error:", error);
+    if (this.props.onError) {
+      this.props.onError();
+    }
+  }
+  
+  render() {
+    if (this.state.hasError) {
+      return null;
+    }
+    
+    return this.props.children;
+  }
+}
 
 export default Projects;
