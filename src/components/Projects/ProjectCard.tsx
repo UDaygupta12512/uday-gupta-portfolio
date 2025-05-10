@@ -25,9 +25,7 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ 
   project, 
   index, 
-  visible, 
-  onMouseEnter, 
-  onMouseLeave 
+  visible 
 }) => {
   return (
     <Card 
@@ -40,8 +38,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         opacity: visible ? 1 : 0,
         transition: `all 0.7s ease-out ${index * 150}ms`
       }}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
     >
       <div 
         className="h-2 w-full" 
