@@ -18,8 +18,6 @@ interface ProjectCardProps {
   project: Project;
   index: number;
   visible: boolean;
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ 

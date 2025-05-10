@@ -30,8 +30,6 @@ const Projects: React.FC = () => {
                 project={project}
                 index={index}
                 visible={visible}
-                onMouseEnter={() => {}}
-                onMouseLeave={() => {}}
               />
             ))}
           </div>
