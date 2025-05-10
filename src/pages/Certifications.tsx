@@ -3,7 +3,7 @@ import React from 'react';
 import SectionHeading from '../components/SectionHeading';
 import AnimatedElement from '../components/AnimatedElement';
 import { Badge } from '@/components/ui/badge';
-import { Certificate } from 'lucide-react';
+import { BadgeCheck } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 interface Certification {
@@ -35,7 +35,7 @@ const certifications: Certification[] = [
   },
   {
     provider: "Google",
-    name: "Analytics Certification, Cloud Fundamentals",
+    name: "Analytics Certification",
     logoColor: "#4285F4",
     year: "2022"
   },
@@ -44,6 +44,12 @@ const certifications: Certification[] = [
     name: "Cloud Computing with AWS",
     logoColor: "#FF8C00",
     year: "2021"
+  },
+  {
+    provider: "Coursera",
+    name: "Google Cloud Fundamentals",
+    logoColor: "#0056D2", 
+    year: "2022"
   },
   {
     provider: "Microsoft",
@@ -84,7 +90,7 @@ const Certifications: React.FC = () => {
                       className="p-2 rounded-full flex items-center justify-center"
                       style={{ backgroundColor: `${cert.logoColor}20` }}
                     >
-                      <Certificate 
+                      <BadgeCheck 
                         className="h-5 w-5" 
                         style={{ color: cert.logoColor }} 
                       />

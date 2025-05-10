@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -30,6 +29,7 @@ const Navbar = () => {
     { name: 'About', path: '/about' },
     { name: 'Skills', path: '/skills' },
     { name: 'Projects', path: '/projects' },
+    { name: 'Certifications', path: '/certifications' },
     { name: 'Contact', path: '/contact' }
   ];
 
