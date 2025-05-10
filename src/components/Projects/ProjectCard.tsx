@@ -43,9 +43,55 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <div className="p-4 flex justify-end">
+      <div 
+        className="h-2 w-full" 
+        style={{ backgroundColor: project.color }}
+      />
+      
+      <div className="p-4 flex justify-between">
         <div className="bg-portfolio-blue/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-white">
           Project
+        </div>
+        <div className="flex gap-2">
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <a 
+                  href={project.githubLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-portfolio-blue p-2 rounded-full hover:bg-portfolio-light-blue transition-all transform hover:scale-110 active:scale-95"
+                  aria-label={`GitHub repository for ${project.title}`}
+                >
+                  <Github className="h-4 w-4 text-white" />
+                </a>
+              </TooltipTrigger>
+              <TooltipContent className="bg-portfolio-dark-blue/90 backdrop-blur-md border-white/10 text-white">
+                View GitHub Repository
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+          
+          {project.liveLink && (
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a 
+                    href={project.liveLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-portfolio-blue p-2 rounded-full hover:bg-portfolio-light-blue transition-all transform hover:scale-110 active:scale-95"
+                    aria-label={`Live demo for ${project.title}`}
+                  >
+                    <ExternalLink className="h-4 w-4 text-white" />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent className="bg-portfolio-dark-blue/90 backdrop-blur-md border-white/10 text-white">
+                  View Live Demo
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          )}
         </div>
       </div>
       
@@ -73,48 +119,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               </Badge>
             ))}
           </div>
-        </div>
-        
-        <div className="pt-4 flex gap-3">
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <a 
-                  href={project.githubLink} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="bg-portfolio-blue p-2 rounded-full hover:bg-portfolio-light-blue transition-all transform hover:scale-125 hover:rotate-6 hover:shadow-xl active:scale-95"
-                  aria-label={`GitHub repository for ${project.title}`}
-                >
-                  <Github className="h-5 w-5 text-white" />
-                </a>
-              </TooltipTrigger>
-              <TooltipContent className="bg-portfolio-dark-blue/90 backdrop-blur-md border-white/10 text-white">
-                View GitHub Repository
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          
-          {project.liveLink && (
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <a 
-                    href={project.liveLink} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="bg-portfolio-blue p-2 rounded-full hover:bg-portfolio-light-blue transition-all transform hover:scale-125 hover:rotate-6 hover:shadow-xl active:scale-95"
-                    aria-label={`Live demo for ${project.title}`}
-                  >
-                    <ExternalLink className="h-5 w-5 text-white" />
-                  </a>
-                </TooltipTrigger>
-                <TooltipContent className="bg-portfolio-dark-blue/90 backdrop-blur-md border-white/10 text-white">
-                  View Live Demo
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-          )}
         </div>
       </CardContent>
     </Card>

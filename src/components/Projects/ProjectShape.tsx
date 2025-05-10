@@ -36,13 +36,19 @@ const ProjectShape: React.FC<ProjectShapeProps> = ({ position, color, hover, onC
 
   // Choose geometry based on index to create variety
   const renderGeometry = () => {
-    switch(index % 3) {
+    switch(index % 6) {
       case 0:
         return <boxGeometry args={[2, 2, 2]} />;
       case 1:
         return <dodecahedronGeometry args={[1.3, 0]} />;
       case 2:
         return <octahedronGeometry args={[1.5, 0]} />;
+      case 3:
+        return <icosahedronGeometry args={[1.4, 0]} />;
+      case 4:
+        return <torusGeometry args={[1, 0.4, 16, 32]} />;
+      case 5:
+        return <tetrahedronGeometry args={[1.5, 0]} />;
       default:
         return <boxGeometry args={[2, 2, 2]} />;
     }
@@ -60,6 +66,8 @@ const ProjectShape: React.FC<ProjectShapeProps> = ({ position, color, hover, onC
         color={color} 
         roughness={0.5} 
         metalness={0.8}
+        emissive={hover ? color : "#000000"}
+        emissiveIntensity={hover ? 0.3 : 0}
       />
     </mesh>
   );

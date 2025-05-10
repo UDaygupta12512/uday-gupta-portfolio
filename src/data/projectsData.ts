@@ -30,5 +30,28 @@ export const projects: Project[] = [
     technologies: ["ReactJS", "API Integration", "JavaScript"],
     githubLink: "https://github.com/UDaygupta12512/news-app",
     color: "#0f172a"
+  },
+  {
+    title: "Task Manager",
+    description: "A feature-rich task management application with drag-and-drop functionality, priority levels, and deadline reminders. Helps users organize their work efficiently.",
+    technologies: ["React", "TypeScript", "Firebase"],
+    githubLink: "https://github.com/UDaygupta12512/task-manager",
+    liveLink: "#",
+    color: "#8b5cf6"
+  },
+  {
+    title: "E-commerce Platform",
+    description: "A full-stack e-commerce solution with product catalog, shopping cart, user authentication, and payment processing. Features responsive design for all devices.",
+    technologies: ["Next.js", "MongoDB", "Stripe API"],
+    githubLink: "https://github.com/UDaygupta12512/ecommerce-platform",
+    color: "#10b981"
+  },
+  {
+    title: "Portfolio Website",
+    description: "A modern, responsive portfolio website showcasing professional skills and projects with interactive elements and smooth animations.",
+    technologies: ["React", "Three.js", "Tailwind CSS"],
+    githubLink: "https://github.com/UDaygupta12512/portfolio",
+    liveLink: "#",
+    color: "#f97316"
   }
 ];

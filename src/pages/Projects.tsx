@@ -4,6 +4,7 @@ import SectionHeading from '../components/SectionHeading';
 import ProjectCard from '../components/Projects/ProjectCard';
 import ProjectsThreeScene from '../components/Projects/ProjectsThreeScene';
 import { projects } from '../data/projectsData';
+import AnimatedElement from '../components/AnimatedElement';
 
 const Projects: React.FC = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -23,7 +24,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="section-padding pt-28 md:pt-36">
+    <section id="projects" className="section-padding pt-28 md:pt-36 pb-20">
       <div className="container">
         <SectionHeading 
           title="My Projects"
@@ -32,7 +33,7 @@ const Projects: React.FC = () => {
         
         {!canvasError ? (
           <div 
-            className="h-[400px] w-full mb-16 transition-all duration-700 scale-y-100 opacity-100"
+            className="h-[450px] w-full mb-20 transition-all duration-700 scale-y-100 opacity-100"
             style={{ 
               transform: visible ? 'translateY(0) scale(1)' : 'translateY(50px) scale(0.95)',
               opacity: visible ? 1 : 0,
@@ -51,18 +52,20 @@ const Projects: React.FC = () => {
           </div>
         )}
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              project={project}
-              index={index}
-              visible={visible}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            />
-          ))}
-        </div>
+        <AnimatedElement animation="fade-up" className="w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={index}
+                project={project}
+                index={index}
+                visible={visible}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              />
+            ))}
+          </div>
+        </AnimatedElement>
       </div>
     </section>
   );
