@@ -1,6 +1,7 @@
 
 import { Link } from 'react-router-dom';
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { ExternalLink } from 'lucide-react';
 
 const Home = () => {
   return (
@@ -19,7 +20,7 @@ const Home = () => {
               Passionate about building intelligent and scalable digital solutions. Currently pursuing Computer Science with a minor in AI.
             </p>
             
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 mb-4">
               <Link 
                 to="/projects"
                 className="bg-portfolio-blue hover:bg-portfolio-light-blue text-white px-6 py-3 rounded-md transition-colors"
@@ -33,6 +34,16 @@ const Home = () => {
                 Contact Me
               </Link>
             </div>
+            
+            <a 
+              href="https://codolio.com/profile/Udaygupta12"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-portfolio-blue hover:text-portfolio-light-blue transition-colors"
+            >
+              <ExternalLink size={16} />
+              <span>View my coding portfolio on Codolio</span>
+            </a>
           </div>
           
           <div className="flex justify-center md:justify-end fade-in delay-200">
