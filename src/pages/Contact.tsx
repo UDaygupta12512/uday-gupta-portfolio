@@ -1,11 +1,13 @@
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Github, Linkedin, Mail, Phone } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
 import { useToast } from '@/hooks/use-toast';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { toast } = useToast();
+  const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,15 +27,31 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you shortly.",
+    // Using EmailJS to send the form
+    emailjs.sendForm(
+      'service_8r6g19a', 
+      'template_agmcdny', 
+      form.current!, 
+      'uTyP5_5RZIKNfMLkY'
+    )
+      .then((result) => {
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for reaching out. I'll get back to you shortly.",
+        });
+        setFormData({ name: '', email: '', message: '' });
+      })
+      .catch((error) => {
+        console.error('EmailJS error:', error);
+        toast({
+          title: "Error sending message",
+          description: "There was a problem sending your message. Please try again.",
+          variant: "destructive",
+        });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
       });
-      setFormData({ name: '', email: '', message: '' });
-      setIsSubmitting(false);
-    }, 1500);
   };
 
   const contactInfo = [
@@ -74,7 +92,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="fade-in">
             <h3 className="text-xl font-bold mb-6 gradient-text">Send Me a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-1">
                   Name
