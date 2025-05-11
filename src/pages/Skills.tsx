@@ -1,6 +1,8 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SectionHeading from '../components/SectionHeading';
+import { Progress } from '@/components/ui/progress';
+import AnimatedElement from '../components/AnimatedElement';
 
 interface Skill {
   name: string;
@@ -14,7 +16,16 @@ interface SkillCategory {
 
 const Skills = () => {
   const [activeTab, setActiveTab] = useState("all");
+  const [visibleSkills, setVisibleSkills] = useState(false);
   
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisibleSkills(true);
+    }, 300);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   const skillCategories: SkillCategory[] = [
     {
       category: "Programming Languages",
@@ -108,7 +119,7 @@ const Skills = () => {
               className={`px-4 py-2 rounded-full text-sm ${
                 activeTab === tab
                   ? "bg-portfolio-blue text-white"
-                  : "bg-muted text-muted-foreground hover:bg-portfolio-blue/20"
+                  : "bg-muted text-muted-foreground hover:bg-portfolio-blue/20 dark:bg-muted/60"
               } transition-colors`}
             >
               {tab === "all" ? "All Skills" : tab.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")}
@@ -117,26 +128,36 @@ const Skills = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredSkills.map((category) => (
-            <div key={category.category} className="glass-card p-6 fade-in">
+          {filteredSkills.map((category, categoryIndex) => (
+            <AnimatedElement 
+              key={category.category} 
+              animation="fade-up" 
+              delay={categoryIndex * 100} 
+              className="glass-card p-6"
+            >
               <h3 className="text-xl font-bold mb-4 gradient-text">{category.category}</h3>
               <div className="space-y-4">
-                {category.skills.map((skill) => (
-                  <div key={skill.name}>
+                {category.skills.map((skill, index) => (
+                  <div key={skill.name} className="mb-4">
                     <div className="flex justify-between mb-1">
                       <span>{skill.name}</span>
                       <span className="text-portfolio-blue">{skill.level}%</span>
                     </div>
-                    <div className="w-full bg-muted rounded-full h-2.5">
-                      <div
-                        className="bg-gradient-to-r from-portfolio-blue to-portfolio-light-blue h-2.5 rounded-full"
-                        style={{ width: `${skill.level}%` }}
-                      />
+                    <div className="h-2.5 w-full bg-muted rounded-full overflow-hidden">
+                      {visibleSkills && (
+                        <div 
+                          className="h-full rounded-full bg-gradient-to-r from-portfolio-blue to-portfolio-light-blue animated-progress-bar"
+                          style={{ 
+                            '--progress-width': `${skill.level}%`,
+                            animationDelay: `${categoryIndex * 100 + index * 100}ms` 
+                          } as React.CSSProperties}
+                        />
+                      )}
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
+            </AnimatedElement>
           ))}
         </div>
       </div>

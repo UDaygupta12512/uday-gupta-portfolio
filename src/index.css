@@ -37,6 +37,36 @@
     --radius: 0.5rem;
   }
 
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 19% 27%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 25% 27%;
+    --muted-foreground: 217 10% 64%;
+
+    --accent: 215 20% 30%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 19% 27%;
+    --input: 215 25% 27%;
+    --ring: 224 76% 48%;
+  }
+
   * {
     @apply border-border;
   }
@@ -46,11 +76,19 @@
   }
 
   body {
-    @apply bg-portfolio-dark-blue text-foreground font-poppins;
+    @apply bg-portfolio-dark-blue text-foreground font-poppins dark:bg-portfolio-dark-mode-bg;
     background-image: radial-gradient(
       circle at 50% 50%,
       hsl(217 33% 17%) 0%,
       hsl(222 47% 11%) 100%
+    );
+  }
+
+  .dark body {
+    background-image: radial-gradient(
+      circle at 50% 50%,
+      hsl(222 47% 11%) 0%,
+      hsl(222 47% 8%) 100%
     );
   }
 
@@ -90,7 +128,7 @@
   }
 
   .glass-card {
-    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl shadow-lg;
+    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl shadow-lg dark:bg-black/5 dark:border-white/5;
   }
 
   /* Enhanced 3D Animation Effects */
@@ -286,5 +324,44 @@
     0% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
     100% { transform: translateY(0); }
+  }
+  
+  /* Animated Progress Bar */
+  .animated-progress-bar {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .animated-progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(to right, theme('colors.portfolio.blue'), theme('colors.portfolio.light-blue'));
+    animation: progress-fill 1.2s ease-out forwards;
+    border-radius: inherit;
+  }
+
+  /* Blog Card */
+  .blog-card {
+    @apply glass-card overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
+  }
+
+  .blog-card-image {
+    @apply w-full h-48 object-cover transition-transform duration-500;
+  }
+
+  .blog-card:hover .blog-card-image {
+    @apply transform scale-105;
+  }
+
+  .blog-card-badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-portfolio-blue/20 text-portfolio-blue dark:bg-portfolio-blue/30 transition-colors hover:bg-portfolio-blue/30;
+  }
+
+  .blog-card-title {
+    @apply text-xl font-bold line-clamp-2 mb-2 transition-colors hover:text-portfolio-blue;
   }
 }

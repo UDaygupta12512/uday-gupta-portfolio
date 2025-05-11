@@ -70,7 +70,9 @@ export default {
         portfolio: {
           'dark-blue': '#0f172a',
           'blue': '#3b82f6',
-          'light-blue': '#60a5fa'
+          'light-blue': '#60a5fa',
+          'dark-mode-bg': '#121212',
+          'dark-card': '#1e1e1e'
         }
       },
       fontFamily: {
@@ -100,6 +102,10 @@ export default {
         "fade-in": {
           from: { opacity: "0", transform: "translateY(10px)" },
           to: { opacity: "1", transform: "translateY(0)" }
+        },
+        "progress-fill": {
+          "0%": { width: "0%" },
+          "100%": { width: "var(--progress-width)" }
         }
       },
       animation: {
@@ -107,7 +113,8 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         "typing": "typing 3.5s steps(40, end)",
         "blink": "blink .75s step-end infinite",
-        "fade-in": "fade-in 0.5s ease-out forwards"
+        "fade-in": "fade-in 0.5s ease-out forwards",
+        "progress-fill": "progress-fill 1.5s ease-out forwards"
       },
     },
   },
