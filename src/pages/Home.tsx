@@ -17,7 +17,7 @@ const Home = () => {
               Aspiring Software Developer | AI Enthusiast
             </h2>
             <p className="text-muted-foreground mb-8 text-lg max-w-lg">
-              Passionate about building intelligent and scalable digital solutions. Currently pursuing Computer Science with a minor in AI.
+              Passionate about building intelligent and scalable digital solutions. Computer Science undergraduate at Meerut Institute of Engineering and Technology and minor in AI Degree from IIT Ropar.
             </p>
             
             <div className="flex flex-wrap gap-4 mb-4">

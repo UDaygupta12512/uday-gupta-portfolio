@@ -12,6 +12,8 @@ export interface Project {
   githubLink: string;
   liveLink?: string;
   color: string;
+  image?: string;
+  categories?: string[];
 }
 
 interface ProjectCardProps {
@@ -37,10 +39,28 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         transition: `all 0.7s ease-out ${index * 150}ms`
       }}
     >
-      <div 
-        className="h-2 w-full" 
-        style={{ backgroundColor: project.color }}
-      />
+      <div className="relative w-full h-48 overflow-hidden">
+        {project.image ? (
+          <img 
+            src={project.image} 
+            alt={project.title} 
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+        ) : (
+          <div 
+            className="w-full h-full flex items-center justify-center bg-gradient-to-br"
+            style={{ 
+              backgroundImage: `linear-gradient(to bottom right, ${project.color}40, ${project.color}90)`
+            }}
+          >
+            <h3 className="text-3xl font-bold text-white">{project.title.charAt(0)}</h3>
+          </div>
+        )}
+        <div 
+          className="h-2 w-full absolute bottom-0" 
+          style={{ backgroundColor: project.color }}
+        />
+      </div>
       
       <div className="p-4 flex justify-between">
         <div className="bg-portfolio-blue/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-white">
