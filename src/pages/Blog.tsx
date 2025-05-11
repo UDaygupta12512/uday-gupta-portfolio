@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import SectionHeading from '../components/SectionHeading';
 import AnimatedElement from '../components/AnimatedElement';
-import { Article } from 'lucide-react';
+import { FileText } from 'lucide-react';
 
 interface BlogPost {
   id: number;
@@ -113,7 +113,7 @@ const Blog = () => {
                   className="blog-card-image"
                 />
                 <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs flex items-center gap-1">
-                  <Article className="w-3 h-3" />
+                  <FileText className="w-3 h-3" />
                   <span>{post.readTime}</span>
                 </div>
               </div>
