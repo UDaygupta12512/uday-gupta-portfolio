@@ -92,6 +92,21 @@
     );
   }
 
+  /* Background grid pattern */
+  .bg-grid-pattern {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  /* Modern glassmorphism */
+  .glass-modern {
+    @apply backdrop-blur-lg bg-white/5 border border-white/10 shadow-lg;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.2),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
   /* Custom 3D Classes */
   .perspective-500 {
     perspective: 500px;
@@ -129,6 +144,20 @@
 
   .glass-card {
     @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl shadow-lg dark:bg-black/5 dark:border-white/5;
+  }
+
+  /* Animated link hover effect */
+  .hover-link {
+    @apply relative;
+  }
+  
+  .hover-link::after {
+    content: '';
+    @apply absolute bg-portfolio-blue h-[2px] w-0 left-0 bottom-0 rounded-full transition-all duration-300 opacity-0;
+  }
+  
+  .hover-link:hover::after {
+    @apply w-full opacity-100;
   }
 
   /* Enhanced 3D Animation Effects */
@@ -265,6 +294,17 @@
   .card-3d:hover {
     transform: translateY(-10px) rotateY(10deg) rotateX(10deg);
   }
+
+  /* New frosty card effect */
+  .frost-card {
+    @apply relative overflow-hidden bg-white/5 backdrop-blur-md rounded-xl;
+  }
+  
+  .frost-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-white/10 to-transparent;
+    pointer-events: none;
+  }
 }
 
 @layer components {
@@ -363,5 +403,21 @@
 
   .blog-card-title {
     @apply text-xl font-bold line-clamp-2 mb-2 transition-colors hover:text-portfolio-blue;
+  }
+
+  /* New UI Components */
+  .badge-modern {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    background: linear-gradient(to right, rgba(59, 130, 246, 0.2), rgba(96, 165, 250, 0.2));
+    border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+  
+  .divider-gradient {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent);
+  }
+  
+  .backdrop-blur {
+    @apply backdrop-filter backdrop-blur-md;
   }
 }

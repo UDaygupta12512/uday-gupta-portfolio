@@ -61,7 +61,21 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
+          className="relative"
         >
+          <motion.div 
+            className="absolute -inset-1 rounded-lg bg-gradient-to-r from-portfolio-blue/20 to-portfolio-light-blue/20 blur-xl opacity-70"
+            animate={{ 
+              backgroundPosition: ['0% 0%', '100% 100%'],
+              opacity: [0.5, 0.8, 0.5]
+            }}
+            transition={{ 
+              duration: 5, 
+              repeat: Infinity,
+              repeatType: 'reverse'
+            }}
+          />
+          
           <motion.h2 
             variants={headingVariants}
             className="text-3xl md:text-4xl font-bold mb-3 relative inline-block font-montserrat"
@@ -82,7 +96,8 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
           )}
         </motion.div>
       ) : (
-        <>
+        <div className="relative">
+          <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-portfolio-blue/20 to-portfolio-light-blue/20 blur-xl opacity-70"></div>
           <h2 className="text-3xl md:text-4xl font-bold mb-3 relative inline-block font-montserrat">
             <span className="gradient-text">{title}</span>
             <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-portfolio-blue to-portfolio-light-blue transform scale-x-50 origin-left"></span>
@@ -92,7 +107,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
               {subtitle}
             </p>
           )}
-        </>
+        </div>
       )}
     </div>
   );

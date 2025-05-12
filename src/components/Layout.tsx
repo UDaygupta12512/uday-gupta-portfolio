@@ -42,7 +42,13 @@ const Layout = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col font-poppins">
+    <div className="min-h-screen flex flex-col font-poppins relative">
+      {/* Subtle background texture */}
+      <div className="fixed inset-0 pointer-events-none z-[-1] opacity-40">
+        <div className="absolute inset-0 bg-grid-pattern"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-portfolio-dark-blue/80 to-portfolio-dark-blue"></div>
+      </div>
+      
       <Navbar />
       <main className="flex-grow">
         <Outlet />
@@ -60,7 +66,7 @@ const Layout = () => {
           >
             <motion.button 
               onClick={scrollToTop}
-              className="bg-portfolio-blue p-3 rounded-full shadow-lg hover:bg-portfolio-light-blue transition-colors"
+              className="bg-portfolio-blue/80 backdrop-blur-md p-3 rounded-full shadow-lg hover:bg-portfolio-light-blue transition-colors border border-white/10"
               aria-label="Back to top"
               whileHover={{ scale: 1.1, boxShadow: "0 0 12px rgba(59, 130, 246, 0.5)" }}
               whileTap={{ scale: 0.9 }}

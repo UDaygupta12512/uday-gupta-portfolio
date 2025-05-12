@@ -86,7 +86,25 @@ export default {
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)'
+        sm: 'calc(var(--radius) - 4px)',
+        'xl': '12px',
+        '2xl': '16px',
+        '3xl': '24px',
+      },
+      letterSpacing: {
+        'tighter': '-0.05em',
+        'tight': '-0.025em',
+        'normal': '0',
+        'wide': '0.025em',
+        'wider': '0.05em',
+        'widest': '0.1em',
+      },
+      boxShadow: {
+        'glass': '0 4px 30px rgba(0, 0, 0, 0.1)',
+        'glass-lg': '0 8px 32px rgba(0, 0, 0, 0.2)',
+        'inner-light': 'inset 0 2px 4px 0 rgba(255, 255, 255, 0.05)',
+        'glow-blue': '0 0 15px rgba(59, 130, 246, 0.5)',
+        'glow-purple': '0 0 15px rgba(139, 92, 246, 0.5)',
       },
       keyframes: {
         "accordion-down": {
@@ -111,7 +129,15 @@ export default {
         "progress-fill": {
           "0%": { width: "0%" },
           "100%": { width: "var(--progress-width)" }
-        }
+        },
+        "shimmer": {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { opacity: "0.6" },
+          "50%": { opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -119,7 +145,19 @@ export default {
         "typing": "typing 3.5s steps(40, end)",
         "blink": "blink .75s step-end infinite",
         "fade-in": "fade-in 0.5s ease-out forwards",
-        "progress-fill": "progress-fill 1.5s ease-out forwards"
+        "progress-fill": "progress-fill 1.5s ease-out forwards",
+        "shimmer": "shimmer 2.5s infinite linear",
+        "pulse-glow": "pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      },
+      backdropBlur: {
+        xs: '2px',
+      },
+      transitionDuration: {
+        '2000': '2000ms',
+        '3000': '3000ms',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
     },
   },

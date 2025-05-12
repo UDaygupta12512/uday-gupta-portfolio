@@ -4,6 +4,7 @@ import { Github, ExternalLink } from 'lucide-react';
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
+import { motion } from 'framer-motion';
 
 export interface Project {
   title: string;
@@ -28,114 +29,154 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   visible 
 }) => {
   return (
-    <Card 
-      key={index} 
-      className="glass-card overflow-hidden rounded-xl transition-all duration-500 hover:translate-y-[-12px] hover:shadow-2xl border-white/5 bg-white/5 backdrop-blur-sm fade-in group"
-      style={{ 
-        animationDelay: `${index * 150}ms`, 
-        boxShadow: `0 10px 30px -15px ${project.color}80`,
-        transform: visible ? 'translateY(0)' : 'translateY(50px)',
-        opacity: visible ? 1 : 0,
-        transition: `all 0.7s ease-out ${index * 150}ms`
+    <motion.div
+      initial={{ 
+        opacity: 0, 
+        y: 50,
+        scale: 0.9,
+      }}
+      animate={visible ? { 
+        opacity: 1, 
+        y: 0,
+        scale: 1,
+        transition: {
+          type: 'spring',
+          stiffness: 100,
+          damping: 15,
+          delay: index * 0.1
+        }
+      } : {}}
+      whileHover={{ 
+        y: -12,
+        transition: {
+          type: 'spring',
+          stiffness: 300,
+        }
       }}
     >
-      <div className="relative w-full h-48 overflow-hidden">
-        {project.image ? (
-          <img 
-            src={project.image} 
-            alt={project.title} 
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-        ) : (
-          <div 
-            className="w-full h-full flex items-center justify-center bg-gradient-to-br"
-            style={{ 
-              backgroundImage: `linear-gradient(to bottom right, ${project.color}40, ${project.color}90)`
-            }}
-          >
-            <h3 className="text-3xl font-bold text-white">{project.title.charAt(0)}</h3>
-          </div>
-        )}
-        <div 
-          className="h-2 w-full absolute bottom-0" 
-          style={{ backgroundColor: project.color }}
-        />
-      </div>
-      
-      <div className="p-4 flex justify-between">
-        <div className="bg-portfolio-blue/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-white">
-          Project
-        </div>
-        <div className="flex gap-2">
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <a 
-                  href={project.githubLink} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="bg-portfolio-blue p-2 rounded-full hover:bg-portfolio-light-blue transition-all transform hover:scale-110 active:scale-95"
-                  aria-label={`GitHub repository for ${project.title}`}
-                >
-                  <Github className="h-4 w-4 text-white" />
-                </a>
-              </TooltipTrigger>
-              <TooltipContent className="bg-portfolio-dark-blue/90 backdrop-blur-md border-white/10 text-white">
-                View GitHub Repository
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+      <Card 
+        className="frost-card overflow-hidden rounded-xl border-white/5 h-full flex flex-col"
+      >
+        <div className="relative w-full h-48 overflow-hidden">
+          {project.image ? (
+            <div className="relative w-full h-full">
+              <div 
+                className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"
+                style={{ backdropFilter: 'blur(0px)' }}
+              ></div>
+              <img 
+                src={project.image} 
+                alt={project.title} 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute bottom-0 left-0 w-full h-1" style={{ backgroundColor: project.color }}></div>
+            </div>
+          ) : (
+            <div 
+              className="w-full h-full flex items-center justify-center"
+              style={{ 
+                background: `linear-gradient(135deg, ${project.color}30, ${project.color}90)`
+              }}
+            >
+              <motion.div 
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
+                className="relative"
+              >
+                <div className="absolute inset-0 rounded-full blur-xl opacity-50" style={{ backgroundColor: project.color }}></div>
+                <div className="relative z-10 h-20 w-20 rounded-full flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/20">
+                  <span className="text-3xl font-bold text-white">{project.title.charAt(0)}</span>
+                </div>
+              </motion.div>
+              <div className="absolute bottom-0 left-0 w-full h-1" style={{ backgroundColor: project.color }}></div>
+            </div>
+          )}
           
-          {project.liveLink && (
+          <div className="absolute top-3 left-3 flex gap-2 z-20">
+            <div className="bg-portfolio-blue/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-white shadow-lg">
+              Project
+            </div>
+          </div>
+        </div>
+        
+        <CardContent className="p-6 space-y-4 relative flex-grow flex flex-col">
+          <h3 className="text-2xl font-bold font-montserrat">
+            <div className="inline-block relative">
+              <span className="gradient-text bg-clip-text text-transparent bg-gradient-to-r from-white to-portfolio-light-blue">
+                {project.title}
+              </span>
+              <div className="absolute -bottom-1 left-0 w-0 h-[2px] bg-portfolio-blue transition-all duration-500 group-hover:w-full"></div>
+            </div>
+          </h3>
+          
+          <p className="text-muted-foreground transition-opacity duration-500 group-hover:text-white/90 line-clamp-3">
+            {project.description}
+          </p>
+          
+          <div className="pt-2 mt-auto">
+            <h4 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Technologies</h4>
+            <div className="flex flex-wrap gap-2">
+              {project.technologies.map((tech, i) => (
+                <Badge 
+                  key={i}
+                  variant="secondary"
+                  className="bg-white/10 hover:bg-portfolio-blue/50 text-white border-none transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5"
+                >
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+          </div>
+          
+          <div className="flex justify-end gap-2 pt-4">
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <a 
-                    href={project.liveLink} 
+                  <motion.a 
+                    href={project.githubLink} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="bg-portfolio-blue p-2 rounded-full hover:bg-portfolio-light-blue transition-all transform hover:scale-110 active:scale-95"
-                    aria-label={`Live demo for ${project.title}`}
+                    className="bg-portfolio-blue/70 backdrop-blur-sm p-2 rounded-full hover:bg-portfolio-blue transition-all"
+                    aria-label={`GitHub repository for ${project.title}`}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
                   >
-                    <ExternalLink className="h-4 w-4 text-white" />
-                  </a>
+                    <Github className="h-4 w-4 text-white" />
+                  </motion.a>
                 </TooltipTrigger>
                 <TooltipContent className="bg-portfolio-dark-blue/90 backdrop-blur-md border-white/10 text-white">
-                  View Live Demo
+                  View GitHub Repository
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
-          )}
-        </div>
-      </div>
-      
-      <CardContent className="p-6 space-y-4 relative group">
-        <h3 className="text-2xl font-bold gradient-text group-hover:bg-gradient-to-r group-hover:from-portfolio-light-blue group-hover:to-white transition-all duration-500">
-          <span className="inline-block transform transition-transform duration-500 group-hover:translate-x-1">
-            {project.title}
-          </span>
-        </h3>
-        
-        <p className="text-muted-foreground transition-opacity duration-500 group-hover:text-white/90">
-          {project.description}
-        </p>
-        
-        <div className="pt-2">
-          <h4 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Technologies</h4>
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech, i) => (
-              <Badge 
-                key={i}
-                variant="secondary"
-                className="bg-white/10 hover:bg-portfolio-blue/50 text-white border-none transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5"
-              >
-                {tech}
-              </Badge>
-            ))}
+            
+            {project.liveLink && (
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <motion.a 
+                      href={project.liveLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="bg-portfolio-blue/70 backdrop-blur-sm p-2 rounded-full hover:bg-portfolio-blue transition-all"
+                      aria-label={`Live demo for ${project.title}`}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <ExternalLink className="h-4 w-4 text-white" />
+                    </motion.a>
+                  </TooltipTrigger>
+                  <TooltipContent className="bg-portfolio-dark-blue/90 backdrop-blur-md border-white/10 text-white">
+                    View Live Demo
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            )}
           </div>
-        </div>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 };
 
