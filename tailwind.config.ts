@@ -72,11 +72,16 @@ export default {
           'blue': '#3b82f6',
           'light-blue': '#60a5fa',
           'dark-mode-bg': '#121212',
-          'dark-card': '#1e1e1e'
+          'dark-card': '#1e1e1e',
+          'accent-green': '#10b981',
+          'accent-purple': '#8b5cf6',
+          'accent-orange': '#f97316'
         }
       },
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],
+        'montserrat': ['Montserrat', 'sans-serif'],
+        'raleway': ['Raleway', 'sans-serif'],
       },
       borderRadius: {
         lg: 'var(--radius)',

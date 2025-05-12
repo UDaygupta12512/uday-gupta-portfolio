@@ -4,9 +4,22 @@ import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { ArrowUp } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Layout = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
+
+  // Add Google Fonts
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,22 +42,34 @@ const Layout = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col font-poppins">
       <Navbar />
       <main className="flex-grow">
         <Outlet />
       </main>
       <Footer />
       
-      <div className={`fixed bottom-8 right-8 transition-all duration-300 z-50 ${showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <button 
-          onClick={scrollToTop}
-          className="bg-portfolio-blue p-3 rounded-full shadow-lg hover:bg-portfolio-light-blue transition-colors transform hover:scale-110 hover:shadow-xl active:scale-95"
-          aria-label="Back to top"
-        >
-          <ArrowUp className="h-5 w-5 text-white" />
-        </button>
-      </div>
+      <AnimatePresence>
+        {showBackToTop && (
+          <motion.div 
+            className="fixed bottom-8 right-8 z-50"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.button 
+              onClick={scrollToTop}
+              className="bg-portfolio-blue p-3 rounded-full shadow-lg hover:bg-portfolio-light-blue transition-colors"
+              aria-label="Back to top"
+              whileHover={{ scale: 1.1, boxShadow: "0 0 12px rgba(59, 130, 246, 0.5)" }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <ArrowUp className="h-5 w-5 text-white" />
+            </motion.button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

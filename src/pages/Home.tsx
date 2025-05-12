@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Code, Briefcase, BookOpen } from 'lucide-react';
 import AnimatedTitle from '@/components/AnimatedTitle';
 
 const Home = () => {
@@ -71,79 +71,101 @@ const Home = () => {
             initial="hidden"
             animate="visible"
             variants={containerVariants}
+            className="max-w-xl"
           >
-            <motion.p 
-              className="text-portfolio-blue mb-3"
+            <motion.div 
+              className="inline-block bg-gradient-to-r from-portfolio-blue/20 to-portfolio-light-blue/20 px-4 py-1 rounded-full mb-4"
               variants={itemVariants}
             >
-              Hello, I'm
-            </motion.p>
+              <span className="text-portfolio-light-blue font-semibold tracking-wide">Hello, I'm</span>
+            </motion.div>
+            
             <motion.div variants={itemVariants}>
               <AnimatedTitle 
                 text="Uday Gupta" 
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-montserrat"
                 letterDelay={40}
               />
             </motion.div>
+            
             <motion.h2 
-              className="text-2xl md:text-3xl font-medium mb-6 gradient-text"
+              className="text-2xl md:text-3xl font-medium mb-6 gradient-text font-raleway"
               variants={itemVariants}
             >
               Aspiring Software Developer | AI Enthusiast
             </motion.h2>
+            
             <motion.p 
-              className="text-muted-foreground mb-8 text-lg max-w-lg"
+              className="text-muted-foreground mb-8 text-lg max-w-lg leading-relaxed"
               variants={itemVariants}
             >
-              Passionate about building intelligent and scalable digital solutions. Computer Science undergraduate at Meerut Institute of Engineering and Technology and minor in AI Degree from IIT Ropar.
+              Passionate about building intelligent and scalable digital solutions 
+              that solve real-world problems. Combining creativity with technical expertise 
+              to develop the next generation of software applications.
             </motion.p>
             
             <motion.div 
-              className="flex flex-wrap gap-4 mb-4"
+              className="flex flex-wrap gap-4 mb-8"
               variants={itemVariants}
             >
               <motion.div
                 variants={buttonVariants}
                 whileHover="hover"
                 whileTap="tap"
+                className="relative overflow-hidden group"
               >
                 <Link 
                   to="/projects"
-                  className="bg-portfolio-blue hover:bg-portfolio-light-blue text-white px-6 py-3 rounded-md transition-colors inline-block"
+                  className="bg-portfolio-blue hover:bg-portfolio-light-blue text-white px-6 py-3 rounded-md transition-colors inline-flex items-center gap-2 z-10 relative"
                 >
-                  View Projects
+                  <Briefcase size={18} />
+                  <span>View Projects</span>
                 </Link>
+                <span className="absolute inset-0 bg-white/10 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
               </motion.div>
 
               <motion.div
                 variants={buttonVariants}
                 whileHover="hover"
                 whileTap="tap"
+                className="relative overflow-hidden group"
               >
                 <Link 
                   to="/contact"
-                  className="bg-transparent border border-portfolio-blue text-portfolio-blue hover:bg-portfolio-blue hover:text-white px-6 py-3 rounded-md transition-all inline-block"
+                  className="bg-transparent border border-portfolio-blue text-portfolio-blue hover:bg-portfolio-blue/10 px-6 py-3 rounded-md transition-all inline-flex items-center gap-2 z-10 relative"
                 >
-                  Contact Me
+                  <Code size={18} />
+                  <span>Contact Me</span>
                 </Link>
+                <span className="absolute inset-0 bg-portfolio-blue/5 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
               </motion.div>
             </motion.div>
             
-            <motion.a 
-              variants={itemVariants}
-              whileHover={{ scale: 1.03 }}
-              href="https://codolio.com/profile/Udaygupta12"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-portfolio-blue hover:text-portfolio-light-blue transition-colors"
-            >
-              <ExternalLink size={16} />
-              <span>View my coding portfolio on Codolio</span>
-            </motion.a>
+            <motion.div className="flex gap-6 mt-8" variants={itemVariants}>
+              <motion.a 
+                whileHover={{ scale: 1.05 }}
+                href="https://codolio.com/profile/Udaygupta12"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-portfolio-blue hover:text-portfolio-light-blue transition-colors group"
+              >
+                <ExternalLink size={18} className="group-hover:rotate-12 transition-transform" />
+                <span>Coding Portfolio</span>
+              </motion.a>
+              
+              <motion.a 
+                whileHover={{ scale: 1.05 }}
+                href="#"
+                className="inline-flex items-center gap-2 text-portfolio-blue hover:text-portfolio-light-blue transition-colors group"
+              >
+                <BookOpen size={18} className="group-hover:rotate-12 transition-transform" />
+                <span>Resume</span>
+              </motion.a>
+            </motion.div>
           </motion.div>
           
           <motion.div 
-            className="flex justify-center md:justify-end"
+            className="flex justify-center md:justify-end relative"
             initial="hidden"
             animate="visible"
             variants={imageVariants}
@@ -152,7 +174,8 @@ const Home = () => {
               className="relative"
               animate={floatAnimation}
             >
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-portfolio-blue shadow-xl">
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-gradient-to-r from-portfolio-blue to-portfolio-light-blue shadow-2xl shadow-portfolio-blue/20 relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-portfolio-blue/40 to-transparent mix-blend-overlay z-10"></div>
                 <motion.div
                   initial={{ opacity: 0, rotate: -10 }}
                   animate={{ opacity: 1, rotate: 0 }}
@@ -169,13 +192,21 @@ const Home = () => {
                 </motion.div>
               </div>
               <motion.div 
-                className="absolute -bottom-6 -right-6 bg-portfolio-dark-blue p-4 rounded-lg shadow-lg"
+                className="absolute -bottom-6 -right-6 bg-background p-5 rounded-lg shadow-2xl shadow-portfolio-blue/10 border border-white/10"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 1.2 }}
               >
-                <div className="text-xl font-bold">Computer Science</div>
-                <div className="text-muted-foreground">CGPA 8.5</div>
+                <div className="text-xl font-bold font-montserrat">Computer Science</div>
+                <div className="text-portfolio-blue font-medium">CGPA 8.5</div>
+              </motion.div>
+              <motion.div 
+                className="absolute -top-3 -left-3 bg-background p-3 rounded-lg shadow-2xl shadow-portfolio-blue/10 border border-white/10"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 1.4 }}
+              >
+                <div className="text-sm font-medium text-portfolio-light-blue">AI Enthusiast</div>
               </motion.div>
             </motion.div>
           </motion.div>
