@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import AnimatedElement from './AnimatedElement';
 
 interface SectionHeadingProps {
@@ -15,24 +16,58 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
   centered = true,
   animate = true
 }) => {
+  const headingVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 100
+      }
+    }
+  };
+
+  const underlineVariants = {
+    hidden: { scaleX: 0 },
+    visible: { 
+      scaleX: 0.5,
+      transition: {
+        delay: 0.4,
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <div className={`mb-16 ${centered ? 'text-center' : ''}`}>
       {animate ? (
-        <AnimatedElement animation="fade-up" duration={800}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 relative inline-block">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <motion.h2 
+            variants={headingVariants}
+            className="text-3xl md:text-4xl font-bold mb-3 relative inline-block"
+          >
             <span className="gradient-text">{title}</span>
-            <AnimatedElement animation="fade-left" delay={400} duration={1000}>
-              <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-portfolio-blue to-portfolio-light-blue transform scale-x-50 origin-left" />
-            </AnimatedElement>
-          </h2>
+            <motion.span 
+              variants={underlineVariants}
+              className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-portfolio-blue to-portfolio-light-blue origin-left"
+            />
+          </motion.h2>
           {subtitle && (
-            <AnimatedElement animation="fade-up" delay={200} duration={800}>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto mt-4">
-                {subtitle}
-              </p>
-            </AnimatedElement>
+            <motion.p 
+              variants={headingVariants}
+              className="text-muted-foreground text-lg max-w-2xl mx-auto mt-4"
+              transition={{ delay: 0.2 }}
+            >
+              {subtitle}
+            </motion.p>
           )}
-        </AnimatedElement>
+        </motion.div>
       ) : (
         <>
           <h2 className="text-3xl md:text-4xl font-bold mb-3 relative inline-block">
