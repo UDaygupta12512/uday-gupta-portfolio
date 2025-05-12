@@ -43,10 +43,46 @@ const Layout = () => {
 
   return (
     <div className="min-h-screen flex flex-col font-poppins relative">
-      {/* Subtle background texture */}
-      <div className="fixed inset-0 pointer-events-none z-[-1] opacity-40">
-        <div className="absolute inset-0 bg-grid-pattern"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-portfolio-dark-blue/80 to-portfolio-dark-blue"></div>
+      {/* Enhanced background with animated particles */}
+      <div className="fixed inset-0 pointer-events-none z-[-1]">
+        {/* Base texture layer */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        
+        {/* Gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-portfolio-dark-blue/90 to-portfolio-dark-blue"></div>
+        
+        {/* Animated particles */}
+        <div className="absolute inset-0 overflow-hidden">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute rounded-full"
+              style={{
+                width: Math.random() * 5 + 1 + 'px',
+                height: Math.random() * 5 + 1 + 'px',
+                left: Math.random() * 100 + '%',
+                top: Math.random() * 100 + '%',
+                background: `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.3)`,
+                boxShadow: '0 0 10px rgba(255, 255, 255, 0.3)'
+              }}
+              animate={{
+                y: [0, Math.random() * 100 - 50],
+                opacity: [0.3, 0.7, 0.3]
+              }}
+              transition={{
+                duration: Math.random() * 10 + 10,
+                repeat: Infinity,
+                repeatType: 'reverse',
+                ease: 'easeInOut',
+                delay: Math.random() * 5
+              }}
+            />
+          ))}
+        </div>
+        
+        {/* Glow effects */}
+        <div className="absolute top-1/4 left-1/4 w-1/3 h-1/3 bg-portfolio-blue/10 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-1/3 h-1/3 bg-portfolio-accent-purple/10 rounded-full blur-[100px]"></div>
       </div>
       
       <Navbar />
@@ -66,12 +102,13 @@ const Layout = () => {
           >
             <motion.button 
               onClick={scrollToTop}
-              className="bg-portfolio-blue/80 backdrop-blur-md p-3 rounded-full shadow-lg hover:bg-portfolio-light-blue transition-colors border border-white/10"
+              className="bg-portfolio-blue/80 backdrop-blur-md p-3 rounded-full shadow-lg hover:bg-portfolio-light-blue transition-colors border border-white/10 relative overflow-hidden group"
               aria-label="Back to top"
               whileHover={{ scale: 1.1, boxShadow: "0 0 12px rgba(59, 130, 246, 0.5)" }}
               whileTap={{ scale: 0.9 }}
             >
-              <ArrowUp className="h-5 w-5 text-white" />
+              <ArrowUp className="h-5 w-5 text-white relative z-10" />
+              <span className="absolute inset-0 bg-white/10 transform -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
             </motion.button>
           </motion.div>
         )}

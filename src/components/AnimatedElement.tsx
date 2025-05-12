@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion, Variant, Variants } from 'framer-motion';
 
@@ -197,14 +196,13 @@ const AnimatedElement: React.FC<AnimatedElementProps> = ({
   const variants = custom || getAnimationVariants(animation);
   const hoverAnimation = getHoverAnimation(hover);
   
-  const containerVariants = staggerChildren ? {
+  const containerVariants: Variants = staggerChildren ? {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren,
+        staggerChildren: staggerDelay, // Use staggerDelay value instead of boolean
         delayChildren: delay / 1000,
-        staggerDelay
       }
     }
   } : variants;

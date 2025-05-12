@@ -54,6 +54,20 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
     }
   };
 
+  const glowVariants = {
+    initial: { opacity: 0.5, scale: 0.9 },
+    animate: {
+      opacity: [0.5, 0.8, 0.5],
+      scale: [0.9, 1.1, 0.9],
+      transition: {
+        duration: 3,
+        repeat: Infinity,
+        repeatType: "reverse",
+        ease: "easeInOut"
+      }
+    }
+  };
+
   return (
     <div className={`mb-16 ${centered ? 'text-center' : ''} ${className}`}>
       {animate ? (
@@ -65,15 +79,9 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
         >
           <motion.div 
             className="absolute -inset-1 rounded-lg bg-gradient-to-r from-portfolio-blue/20 to-portfolio-light-blue/20 blur-xl opacity-70"
-            animate={{ 
-              backgroundPosition: ['0% 0%', '100% 100%'],
-              opacity: [0.5, 0.8, 0.5]
-            }}
-            transition={{ 
-              duration: 5, 
-              repeat: Infinity,
-              repeatType: 'reverse'
-            }}
+            variants={glowVariants}
+            initial="initial"
+            animate="animate"
           />
           
           <motion.h2 
@@ -94,6 +102,46 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
               {subtitle}
             </motion.p>
           )}
+          
+          {/* Decorative elements */}
+          <motion.div
+            className="absolute -top-6 -left-20 w-2 h-2 bg-portfolio-light-blue rounded-full hidden md:block"
+            animate={{
+              y: [0, -8, 0],
+              opacity: [0.5, 1, 0.5]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              repeatType: "reverse"
+            }}
+          />
+          <motion.div
+            className="absolute -bottom-4 -right-16 w-2 h-2 bg-portfolio-accent-purple rounded-full hidden md:block"
+            animate={{
+              y: [0, 8, 0],
+              opacity: [0.5, 1, 0.5]
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              repeatType: "reverse",
+              delay: 1
+            }}
+          />
+          <motion.div
+            className="absolute top-1/2 -right-10 w-1 h-1 bg-portfolio-accent-green rounded-full hidden md:block"
+            animate={{
+              x: [0, 5, 0],
+              opacity: [0.5, 1, 0.5]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              repeatType: "reverse",
+              delay: 0.5
+            }}
+          />
         </motion.div>
       ) : (
         <div className="relative">
