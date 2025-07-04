@@ -62,7 +62,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
       transition: {
         duration: 3,
         repeat: Infinity,
-        repeatType: "reverse",
+        repeatType: "reverse" as const,
         ease: "easeInOut"
       }
     }
@@ -113,7 +113,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
             transition={{
               duration: 3,
               repeat: Infinity,
-              repeatType: "reverse"
+              repeatType: "reverse" as const
             }}
           />
           <motion.div
@@ -125,7 +125,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
             transition={{
               duration: 4,
               repeat: Infinity,
-              repeatType: "reverse",
+              repeatType: "reverse" as const,
               delay: 1
             }}
           />
@@ -138,7 +138,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
             transition={{
               duration: 2,
               repeat: Infinity,
-              repeatType: "reverse",
+              repeatType: "reverse" as const,
               delay: 0.5
             }}
           />
