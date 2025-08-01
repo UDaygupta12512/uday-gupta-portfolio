@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
 import ThemeToggle from './ThemeToggle';
 
@@ -64,12 +64,12 @@ const Navbar = () => {
             </NavLink>
           ))}
           <ThemeToggle />
-          <a 
-            href="/#contact" 
+          <Link 
+            to="/contact" 
             className="bg-portfolio-blue hover:bg-portfolio-light-blue text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
           >
             Hire Me
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -111,13 +111,13 @@ const Navbar = () => {
                 {link.name}
               </NavLink>
             ))}
-            <a 
-              href="/#contact"
+            <Link 
+              to="/contact"
               onClick={() => setIsMenuOpen(false)}
               className="bg-portfolio-blue hover:bg-portfolio-light-blue text-white p-2 rounded-md text-center transition-colors"
             >
               Hire Me
-            </a>
+            </Link>
           </div>
         </div>
       )}
