@@ -291,7 +291,6 @@ const Home = () => {
               </motion.div>
               
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-gradient-to-r from-portfolio-blue to-portfolio-light-blue shadow-2xl shadow-portfolio-blue/20 relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-portfolio-blue/40 to-transparent mix-blend-overlay z-10"></div>
                 <motion.div
                   initial={{ opacity: 0, rotate: -10 }}
                   animate={{ opacity: 1, rotate: 0 }}
