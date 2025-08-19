@@ -300,7 +300,7 @@ const Home = () => {
                     <AvatarImage 
                       src="/lovable-uploads/45012b50-f341-44fe-a3a7-73ebcf916cd5.png" 
                       alt="Uday Gupta" 
-                      className="object-cover w-full h-full"
+                      className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
                     />
                     <AvatarFallback className="text-5xl font-bold">UG</AvatarFallback>
                   </Avatar>
