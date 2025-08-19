@@ -1,6 +1,6 @@
 
 import { useState, useRef } from 'react';
-import { Github, Linkedin, Mail, Phone } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, Code2 } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
 import { useToast } from '@/hooks/use-toast';
 import emailjs from '@emailjs/browser';
@@ -78,6 +78,12 @@ const Contact = () => {
       label: "GitHub",
       value: "github.com/UDaygupta12512",
       link: "https://github.com/UDaygupta12512"
+    },
+    {
+      icon: Code2,
+      label: "Coding Portfolio",
+      value: "codolio.com/profile/Udaygupta12",
+      link: "https://codolio.com/profile/Udaygupta12"
     }
   ];
 
@@ -196,6 +202,14 @@ const Contact = () => {
                     className="bg-muted p-2 rounded-lg hover:bg-portfolio-blue hover:text-white transition-colors"
                   >
                     <Mail size={20} />
+                  </a>
+                  <a 
+                    href="https://codolio.com/profile/Udaygupta12" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-muted p-2 rounded-lg hover:bg-portfolio-blue hover:text-white transition-colors"
+                  >
+                    <Code2 size={20} />
                   </a>
                 </div>
               </div>
