@@ -34,6 +34,7 @@ export const projects: Project[] = [
     description: "Developed an AI-powered storytelling web app that generates personalized, interactive children's stories using GPT-based language models. Deployed Flask backend with MongoDB to store user preferences and story history for repeatable experiences. Integrated user input (character, theme, tone) with dynamic story branching to enhance engagement.",
     technologies: ["React JS", "Python", "DALL·E", "Tailwind CSS", "Flask", "MongoDB"],
     githubLink: "https://github.com/UDaygupta12512/kiddo-tale-spark",
+    liveLink: "https://github.com/UDaygupta12512/kiddo-tale-spark",
     color: "#f59e0b",
     image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=800&h=500",
     categories: ["ai", "web"]
