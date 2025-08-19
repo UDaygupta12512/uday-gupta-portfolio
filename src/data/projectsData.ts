@@ -16,6 +16,7 @@ export const projects: Project[] = [
     description: "Built an AI-powered platform that transforms user-submitted game ideas into detailed, production-ready game design documents using GPT-4.5. Designed a sleek and interactive UI with React and Tailwind CSS, allowing iterative refinement and collaborative editing of design documents.",
     technologies: ["Python", "GPT-4.5", "React", "Tailwind CSS", "Firebase"],
     githubLink: "https://github.com/UDaygupta12512/meta-learn-worlds-ai",
+    liveLink: "https://github.com/UDaygupta12512/mind-to-game-forge",
     color: "#8b5cf6",
     image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&h=500",
     categories: ["ai", "web"]
@@ -25,6 +26,7 @@ export const projects: Project[] = [
     description: "Developed an AI-driven podcast generator that creates full-length podcast episodes using GPT-4.5 for content scripting and ElevenLabs for lifelike voice synthesis. Integrated Firebase for real-time episode storage, user libraries, and content personalization based on listening history.",
     technologies: ["HTML", "JavaScript", "ReactJS", "Tailwind CSS", "Firebase", "ElevenLabs"],
     githubLink: "https://github.com/UDaygupta12512/ai-podcast-creator",
+    liveLink: "https://github.com/UDaygupta12512/ai-podcast-creator",
     color: "#10b981",
     image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&h=500",
     categories: ["ai", "web"]
@@ -44,6 +46,7 @@ export const projects: Project[] = [
     description: "An interactive tool that visualizes various sorting algorithms in action, helping users understand how different sorting methods work and compare their performance.",
     technologies: ["Python", "Pygame", "Tkinter"],
     githubLink: "https://github.com/UDaygupta12512/sorting-visualizer",
+    liveLink: "https://github.com/UDaygupta12512/sorting-visualizer",
     color: "#60a5fa",
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&h=500",
     categories: ["ai", "web"]
@@ -53,7 +56,7 @@ export const projects: Project[] = [
     description: "A responsive web application that provides real-time weather information with automatic location detection. Users can search for weather conditions in different locations globally.",
     technologies: ["ReactJS", "NodeJS", "Weather API"],
     githubLink: "https://github.com/UDaygupta12512/weather-app",
-    liveLink: "#",
+    liveLink: "https://github.com/UDaygupta12512/weather-app",
     color: "#3b82f6",
     image: "https://images.unsplash.com/photo-1561484930-998b6a7b22e8?auto=format&fit=crop&w=800&h=500",
     categories: ["web"]
@@ -63,6 +66,7 @@ export const projects: Project[] = [
     description: "A dynamic news aggregation platform that delivers the latest updates across various categories. Features include live news updates, content filtering, and article search functionality.",
     technologies: ["ReactJS", "API Integration", "JavaScript"],
     githubLink: "https://github.com/UDaygupta12512/news-app",
+    liveLink: "https://github.com/UDaygupta12512/news-app",
     color: "#0f172a",
     image: "https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=800&h=500",
     categories: ["web", "mobile"]
@@ -72,7 +76,7 @@ export const projects: Project[] = [
     description: "A feature-rich task management application with drag-and-drop functionality, priority levels, and deadline reminders. Helps users organize their work efficiently.",
     technologies: ["React", "TypeScript", "Firebase"],
     githubLink: "https://github.com/UDaygupta12512/task-manager",
-    liveLink: "#",
+    liveLink: "https://github.com/UDaygupta12512/task-manager",
     color: "#8b5cf6",
     image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&h=500",
     categories: ["web", "mobile"]
@@ -82,6 +86,7 @@ export const projects: Project[] = [
     description: "A full-stack e-commerce solution with product catalog, shopping cart, user authentication, and payment processing. Features responsive design for all devices.",
     technologies: ["Next.js", "MongoDB", "Stripe API"],
     githubLink: "https://github.com/UDaygupta12512/ecommerce-platform",
+    liveLink: "https://github.com/UDaygupta12512/ecommerce-platform",
     color: "#10b981",
     image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=800&h=500",
     categories: ["web"]
@@ -91,7 +96,7 @@ export const projects: Project[] = [
     description: "A modern, responsive portfolio website showcasing professional skills and projects with interactive elements and smooth animations.",
     technologies: ["React", "Three.js", "Tailwind CSS"],
     githubLink: "https://github.com/UDaygupta12512/portfolio",
-    liveLink: "#",
+    liveLink: "https://github.com/UDaygupta12512/portfolio",
     color: "#f97316",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&h=500",
     categories: ["web"]
