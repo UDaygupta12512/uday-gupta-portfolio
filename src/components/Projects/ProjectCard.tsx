@@ -141,6 +141,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                     aria-label={`GitHub repository for ${project.title}`}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
+                    onClick={(e) => {
+                      console.log('GitHub link clicked:', project.githubLink);
+                      window.open(project.githubLink, '_blank', 'noopener,noreferrer');
+                    }}
                   >
                     <Github className="h-4 w-4 text-white" />
                   </motion.a>
@@ -163,6 +167,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                       aria-label={`Live demo for ${project.title}`}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
+                      onClick={(e) => {
+                        console.log('Live link clicked:', project.liveLink);
+                        window.open(project.liveLink, '_blank', 'noopener,noreferrer');
+                      }}
                     >
                       <ExternalLink className="h-4 w-4 text-white" />
                     </motion.a>

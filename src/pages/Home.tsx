@@ -219,6 +219,10 @@ const Home = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-portfolio-blue hover:text-portfolio-light-blue transition-colors group"
+                onClick={(e) => {
+                  console.log('Coding portfolio link clicked');
+                  window.open('https://codolio.com/profile/Udaygupta12', '_blank', 'noopener,noreferrer');
+                }}
               >
                 <ExternalLink size={18} className="group-hover:rotate-12 transition-transform" />
                 <span>Coding Portfolio</span>
