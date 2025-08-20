@@ -302,7 +302,7 @@ const Home = () => {
                 >
                   <Avatar className="w-full h-full">
                     <AvatarImage 
-                      src="/lovable-uploads/45012b50-f341-44fe-a3a7-73ebcf916cd5.png" 
+                      src="/lovable-uploads/8491245c-05f0-4b62-88cb-57c4ce4923da.png" 
                       alt="Uday Gupta" 
                       className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
                     />
