@@ -62,8 +62,7 @@ export const projects: Project[] = [
     title: "News App",
     description: "A dynamic news aggregation platform that delivers the latest updates across various categories. Features include live news updates, content filtering, and article search functionality.",
     technologies: ["ReactJS", "API Integration", "JavaScript"],
-    githubLink: "https://github.com/UDaygupta12512/news-app",
-    liveLink: "https://github.com/UDaygupta12512/news-app",
+    githubLink: "https://github.com/UDaygupta12512/course-alchemy-ai",
     color: "#0f172a",
     image: "https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=800&h=500",
     categories: ["web", "mobile"]
@@ -72,8 +71,7 @@ export const projects: Project[] = [
     title: "Task Manager",
     description: "A feature-rich task management application with drag-and-drop functionality, priority levels, and deadline reminders. Helps users organize their work efficiently.",
     technologies: ["React", "TypeScript", "Firebase"],
-    githubLink: "https://github.com/UDaygupta12512/task-manager",
-    liveLink: "https://github.com/UDaygupta12512/task-manager",
+    githubLink: "https://github.com/UDaygupta12512/meta-learn-worlds-ai",
     color: "#8b5cf6",
     image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&h=500",
     categories: ["web", "mobile"]
@@ -82,8 +80,7 @@ export const projects: Project[] = [
     title: "E-commerce Platform",
     description: "A full-stack e-commerce solution with product catalog, shopping cart, user authentication, and payment processing. Features responsive design for all devices.",
     technologies: ["Next.js", "MongoDB", "Stripe API"],
-    githubLink: "https://github.com/UDaygupta12512/ecommerce-platform",
-    liveLink: "https://github.com/UDaygupta12512/ecommerce-platform",
+    githubLink: "https://github.com/UDaygupta12512/course-alchemy-ai",
     color: "#10b981",
     image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=800&h=500",
     categories: ["web"]
@@ -92,8 +89,7 @@ export const projects: Project[] = [
     title: "Portfolio Website",
     description: "A modern, responsive portfolio website showcasing professional skills and projects with interactive elements and smooth animations.",
     technologies: ["React", "Three.js", "Tailwind CSS"],
-    githubLink: "https://github.com/UDaygupta12512/portfolio",
-    liveLink: "https://github.com/UDaygupta12512/portfolio",
+    githubLink: "https://github.com/UDaygupta12512/uday-gupta-portfolio",
     color: "#f97316",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&h=500",
     categories: ["web"]
