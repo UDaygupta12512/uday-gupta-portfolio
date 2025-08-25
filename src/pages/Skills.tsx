@@ -30,69 +30,110 @@ const Skills = () => {
     {
       category: "Programming Languages",
       skills: [
-        { name: "Python", level: 90 },
-        { name: "Java", level: 85 },
-        { name: "C", level: 80 },
-        { name: "C++", level: 85 },
-        { name: "JavaScript", level: 85 }
+        { name: "Python", level: 92 },
+        { name: "Java", level: 88 },
+        { name: "JavaScript/TypeScript", level: 90 },
+        { name: "C/C++", level: 85 },
+        { name: "SQL", level: 82 },
+        { name: "HTML5/CSS3", level: 95 }
       ]
     },
     {
-      category: "Web Development",
+      category: "Frontend Development",
       skills: [
-        { name: "React.js", level: 85 },
-        { name: "Redux", level: 75 },
-        { name: "Next.js", level: 70 },
-        { name: "Node.js", level: 75 },
-        { name: "CSS", level: 80 },
-        { name: "HTML", level: 90 }
+        { name: "React.js", level: 90 },
+        { name: "Next.js", level: 78 },
+        { name: "Redux/Zustand", level: 82 },
+        { name: "Tailwind CSS", level: 88 },
+        { name: "Material-UI", level: 80 },
+        { name: "Framer Motion", level: 75 }
       ]
     },
     {
-      category: "Android Development",
+      category: "Backend Development",
       skills: [
-        { name: "Android Studio", level: 75 }
+        { name: "Node.js", level: 85 },
+        { name: "Express.js", level: 80 },
+        { name: "Flask/Django", level: 78 },
+        { name: "REST APIs", level: 88 },
+        { name: "GraphQL", level: 70 },
+        { name: "Microservices", level: 72 }
       ]
     },
     {
-      category: "AI & ML",
+      category: "AI & Machine Learning",
       skills: [
-        { name: "Machine Learning", level: 70 },
-        { name: "Data Analysis", level: 75 },
-        { name: "Neural Networks", level: 65 }
+        { name: "GPT Integration", level: 85 },
+        { name: "Machine Learning", level: 78 },
+        { name: "Data Analysis", level: 82 },
+        { name: "Neural Networks", level: 75 },
+        { name: "TensorFlow/PyTorch", level: 70 },
+        { name: "Data Visualization", level: 80 }
       ]
     },
     {
-      category: "Cloud Computing",
+      category: "Cloud & DevOps",
       skills: [
-        { name: "AWS", level: 70 },
-        { name: "GCP", level: 65 },
-        { name: "Azure", level: 60 }
+        { name: "AWS (EC2, S3, Lambda)", level: 80 },
+        { name: "Microsoft Azure", level: 75 },
+        { name: "Google Cloud Platform", level: 72 },
+        { name: "Docker", level: 70 },
+        { name: "CI/CD Pipelines", level: 68 },
+        { name: "Firebase", level: 85 }
       ]
     },
     {
-      category: "Database",
+      category: "Databases",
       skills: [
-        { name: "SQL", level: 80 },
-        { name: "MongoDB", level: 70 }
+        { name: "MySQL/PostgreSQL", level: 85 },
+        { name: "MongoDB", level: 80 },
+        { name: "Firebase Firestore", level: 82 },
+        { name: "Redis", level: 65 },
+        { name: "Oracle Database", level: 70 },
+        { name: "Database Design", level: 78 }
       ]
     },
     {
-      category: "Tools",
+      category: "Mobile Development",
       skills: [
-        { name: "GitHub", level: 85 },
-        { name: "VS Code", level: 90 },
-        { name: "IntelliJ IDEA", level: 80 },
-        { name: "Linux", level: 75 }
+        { name: "React Native", level: 75 },
+        { name: "Android Studio", level: 78 },
+        { name: "Progressive Web Apps", level: 80 },
+        { name: "Mobile UI/UX", level: 72 },
+        { name: "Cross-platform Dev", level: 75 }
       ]
     },
     {
-      category: "Additional",
+      category: "Salesforce",
       skills: [
-        { name: "Data Structures", level: 85 },
-        { name: "Algorithms", level: 80 },
-        { name: "Network Security", level: 70 },
-        { name: "OS Knowledge", level: 75 }
+        { name: "Salesforce AI Associate", level: 85 },
+        { name: "Agentforce Specialist", level: 80 },
+        { name: "Einstein AI", level: 78 },
+        { name: "Apex Programming", level: 70 },
+        { name: "Lightning Components", level: 72 },
+        { name: "Salesforce Integration", level: 75 }
+      ]
+    },
+    {
+      category: "Development Tools",
+      skills: [
+        { name: "Git/GitHub", level: 90 },
+        { name: "VS Code", level: 95 },
+        { name: "IntelliJ IDEA", level: 85 },
+        { name: "Postman", level: 88 },
+        { name: "Figma", level: 70 },
+        { name: "Linux/Unix", level: 80 }
+      ]
+    },
+    {
+      category: "Problem Solving & Algorithms",
+      skills: [
+        { name: "Data Structures", level: 88 },
+        { name: "Algorithm Design", level: 85 },
+        { name: "Competitive Programming", level: 82 },
+        { name: "System Design", level: 75 },
+        { name: "Code Optimization", level: 80 },
+        { name: "Debugging", level: 90 }
       ]
     }
   ];
