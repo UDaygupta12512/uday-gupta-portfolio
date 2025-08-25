@@ -21,57 +21,64 @@ const certifications: Certification[] = [
     provider: "Salesforce",
     name: "Certified AI Associate",
     logoColor: "#00A1E0",
-    year: "2023",
+    year: "2025",
+    verificationLink: "https://github.com/UDaygupta12512/Certifications-/blob/main/Salesforce%20ai%20Associate.jpeg",
     description: "Mastered Salesforce Einstein AI capabilities and implementation strategies",
     skills: ["AI Integration", "Predictive Analytics", "Automated Insights"]
   },
   {
-    provider: "Cisco",
-    name: "Introduction to Data Science",
-    logoColor: "#1BA0D7",
-    year: "2023",
-    description: "Comprehensive understanding of data analysis, visualization, and modeling techniques",
-    skills: ["Data Analysis", "Python", "Pandas", "Statistical Modeling"]
+    provider: "Salesforce",
+    name: "Agentforce Specialist",
+    logoColor: "#00A1E0",
+    year: "2025",
+    verificationLink: "https://github.com/UDaygupta12512/Certifications-/blob/main/Salesforce%20Agentforce%20Specialist.pdf",
+    description: "Specialized in Salesforce Agentforce automation and implementation",
+    skills: ["Agent Automation", "Salesforce Platform", "Process Automation"]
   },
   {
     provider: "HackerRank",
     name: "Problem-Solving Basics",
     logoColor: "#2EC866",
-    year: "2022",
+    year: "2024",
+    verificationLink: "https://github.com/UDaygupta12512/Certifications-/blob/main/problem_solving_basic%20certificate.pdf",
     description: "Demonstrated proficiency in algorithms and data structures through practical challenges",
     skills: ["Algorithms", "Data Structures", "Optimization", "Logic"]
   },
   {
-    provider: "Google",
-    name: "Analytics Certification",
-    logoColor: "#4285F4",
-    year: "2022",
-    description: "Expertise in implementing and analyzing marketing data using Google Analytics",
-    skills: ["Data Analysis", "Traffic Metrics", "Conversion Tracking", "Reporting"]
+    provider: "Microsoft",
+    name: "Azure Fundamentals",
+    logoColor: "#00A4EF",
+    year: "2024",
+    verificationLink: "https://media.licdn.com/dms/image/v2/D5622AQFI0h3GwGct6w/feedshare-shrink_800/B56ZhAgyZQG0Ak-/0/1753428995217?e=1758758400&v=beta&t=sj9nUlqBqYEgraaFcHDrhMVqPCaadYXHyS5ibH9IW3A",
+    description: "Core knowledge of Microsoft Azure cloud platform and services",
+    skills: ["Azure Services", "Cloud Computing", "Virtual Machines", "Storage"]
   },
   {
-    provider: "Internshala",
-    name: "Cloud Computing with AWS",
-    logoColor: "#FF8C00",
-    year: "2021",
-    description: "Understanding of AWS services and cloud infrastructure management",
+    provider: "AWS",
+    name: "Certified Cloud Practitioner",
+    logoColor: "#FF9900",
+    year: "2024",
+    verificationLink: "https://github.com/UDaygupta12512/Certifications-/blob/main/AWS%20Certified%20Cloud%20Practitioner%20certificate.pdf",
+    description: "Foundation-level understanding of AWS cloud services and architecture",
     skills: ["EC2", "S3", "Lambda", "CloudFormation", "IAM"]
   },
   {
-    provider: "Coursera",
-    name: "Google Cloud Fundamentals",
-    logoColor: "#0056D2", 
-    year: "2022",
-    description: "Core knowledge of Google Cloud Platform services and architecture",
-    skills: ["GCP", "Cloud Storage", "Compute Engine", "App Engine"]
+    provider: "Oracle",
+    name: "Foundations Associate",
+    logoColor: "#F80000",
+    year: "2025",
+    verificationLink: "https://github.com/UDaygupta12512/Certifications-/blob/main/Oracle%20certified.pdf",
+    description: "Fundamental knowledge of Oracle database and cloud technologies",
+    skills: ["Oracle Database", "SQL", "Cloud Infrastructure", "Data Management"]
   },
   {
-    provider: "Microsoft",
-    name: "Azure for AI and Machine Learning",
-    logoColor: "#00A4EF",
-    year: "2023",
-    description: "Applied machine learning and AI solutions using Microsoft Azure services",
-    skills: ["Azure ML", "Cognitive Services", "AI Models", "Data Processing"]
+    provider: "GeeksforGeeks",
+    name: "160-Day DSA Challenge",
+    logoColor: "#2F8D46",
+    year: "2025",
+    verificationLink: "https://github.com/UDaygupta12512/Certifications-/blob/main/GFG%20160.pdf",
+    description: "Completed comprehensive 160-day Data Structures and Algorithms challenge",
+    skills: ["Data Structures", "Algorithms", "Problem Solving", "Competitive Programming"]
   }
 ];
 
