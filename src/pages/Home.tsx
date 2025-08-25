@@ -247,81 +247,16 @@ const Home = () => {
           >
             <motion.div 
               className="relative"
-              animate={floatAnimation}
             >
-              {/* Decorative elements around avatar */}
-              <motion.div 
-                className="absolute -z-10 inset-0 bg-gradient-to-br from-portfolio-blue/30 to-portfolio-accent-purple/30 rounded-full blur-xl"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.5, 0.8, 0.5]
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  repeatType: "reverse"
-                }}
-              />
-              
-              {/* Code particles floating around the avatar */}
-              <motion.div 
-                className="absolute -top-8 -right-4 text-portfolio-blue/40 text-xs font-mono"
-                animate={{
-                  y: [0, -15, 0],
-                  opacity: [0.4, 0.8, 0.4]
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  repeatType: "reverse"
-                }}
-              >
-                &lt;code&gt;
-              </motion.div>
-              <motion.div 
-                className="absolute -bottom-4 left-0 text-portfolio-accent-purple/40 text-xs font-mono"
-                animate={{
-                  y: [0, 15, 0],
-                  opacity: [0.4, 0.7, 0.4]
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  delay: 1
-                }}
-              >
-                &lt;/&gt;
-              </motion.div>
-              
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-gradient-to-r from-portfolio-blue to-portfolio-light-blue shadow-2xl shadow-portfolio-blue/20 relative">
-                <motion.div
-                  initial={{ opacity: 0, rotate: -10 }}
-                  animate={{ opacity: 1, rotate: 0 }}
-                  transition={{ duration: 0.8, delay: 0.7 }}
-                >
-                  <Avatar className="w-full h-full">
-                    <AvatarImage 
-                      src="/lovable-uploads/8491245c-05f0-4b62-88cb-57c4ce4923da.png" 
-                      alt="Uday Gupta" 
-                      className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
-                    />
-                    <AvatarFallback className="text-5xl font-bold">UG</AvatarFallback>
-                  </Avatar>
-                </motion.div>
-                
-                {/* Glowing borders */}
-                <motion.div 
-                  className="absolute -inset-1 rounded-full opacity-40 bg-gradient-to-r from-portfolio-blue via-portfolio-light-blue to-portfolio-accent-purple blur-sm z-0" 
-                  animate={{
-                    opacity: [0.4, 0.7, 0.4],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                  }}
-                />
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-border shadow-lg relative">
+                <Avatar className="w-full h-full">
+                  <AvatarImage 
+                    src="/lovable-uploads/8491245c-05f0-4b62-88cb-57c4ce4923da.png" 
+                    alt="Uday Gupta" 
+                    className="object-cover w-full h-full"
+                  />
+                  <AvatarFallback className="text-5xl font-bold">UG</AvatarFallback>
+                </Avatar>
               </div>
               
               <motion.div 
