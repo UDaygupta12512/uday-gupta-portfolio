@@ -24,7 +24,7 @@ export const projects: Project[] = [
     title: "AI Podcast Creation",
     description: "Developed an AI-driven podcast generator that creates full-length podcast episodes using GPT-4.5 for content scripting and ElevenLabs for lifelike voice synthesis. Integrated Firebase for real-time episode storage, user libraries, and content personalization based on listening history.",
     technologies: ["HTML", "JavaScript", "ReactJS", "Tailwind CSS", "Firebase", "ElevenLabs"],
-    githubLink: "https://github.com/UDaygupta12512/blogcast-audio-forge",
+    githubLink: "https://github.com/UDaygupta12512/Podcast-Generation",
     color: "#10b981",
     image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&h=500",
     categories: ["ai", "web"]
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     title: "Magical AI Stories",
     description: "Developed an AI-powered storytelling web app that generates personalized, interactive children's stories using GPT-based language models. Deployed Flask backend with MongoDB to store user preferences and story history for repeatable experiences. Integrated user input (character, theme, tone) with dynamic story branching to enhance engagement and imagination.",
     technologies: ["React JS", "Python", "DALL·E", "React", "Tailwind CSS"],
-    githubLink: "https://github.com/UDaygupta12512/kiddo-tale-spark",
+    githubLink: "https://github.com/UDaygupta12512/Kids-Story",
     color: "#f59e0b",
     image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=800&h=500",
     categories: ["ai", "web"]
