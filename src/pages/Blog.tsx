@@ -175,12 +175,12 @@ const Blog = () => {
                 
                 <div className="flex justify-between items-center">
                   <span className="text-xs text-muted-foreground">{post.date}</span>
-                  <a 
-                    href={`#article-${post.id}`} 
-                    className="text-portfolio-blue hover:text-portfolio-light-blue text-sm font-medium transition-colors"
+                  <span 
+                    className="text-portfolio-blue text-sm font-medium cursor-default opacity-70"
+                    title="Coming soon"
                   >
-                    Read More →
-                  </a>
+                    Coming Soon
+                  </span>
                 </div>
               </div>
             </AnimatedElement>
