@@ -40,7 +40,7 @@ const About = () => {
                 </div>
                 <p className="text-muted-foreground leading-relaxed">B.Tech in Computer Science at Meerut Institute of Engineering and Technology with minor in AI from IIT Ropar. Focused on machine learning, data structures, and software engineering.</p>
                 <div className="flex gap-2 flex-wrap mt-3">
-                  <Badge className="bg-portfolio-blue/20 text-portfolio-light-blue hover:bg-portfolio-blue/30 border-none">CGPA: 8.5</Badge>
+                  <Badge className="bg-portfolio-blue/20 text-portfolio-light-blue hover:bg-portfolio-blue/30 border-none">CGPA: 8.2</Badge>
                   <Badge className="bg-portfolio-accent-purple/20 text-portfolio-accent-purple hover:bg-portfolio-accent-purple/30 border-none">AI Minor</Badge>
                   <Badge className="bg-portfolio-accent-green/20 text-portfolio-accent-green hover:bg-portfolio-accent-green/30 border-none">2019-2023</Badge>
                 </div>
@@ -157,7 +157,7 @@ const About = () => {
                     </div>
                     
                     <p className="leading-relaxed">
-                      Beyond maintaining a strong academic record with an 8.5 CGPA, I actively participate in coding competitions, hackathons, and collaborative projects that challenge me to apply my skills in real-world scenarios while fostering teamwork and innovation.
+                      Beyond maintaining a strong academic record with an 8.2 CGPA, I actively participate in coding competitions, hackathons, and collaborative projects that challenge me to apply my skills in real-world scenarios while fostering teamwork and innovation.
                     </p>
                     
                     <p className="leading-relaxed">
@@ -167,7 +167,9 @@ const About = () => {
                   
                   <div className="mt-8 flex flex-wrap gap-4">
                     <a 
-                      href="#" 
+                      href="/UDAY-GUPTA-RESUME-CSE.pdf" 
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 bg-portfolio-blue hover:bg-portfolio-light-blue text-white px-6 py-3 rounded-md transition-colors group"
                     >
                       <FileText size={18} className="group-hover:rotate-12 transition-transform" />

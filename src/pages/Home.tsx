@@ -230,7 +230,9 @@ const Home = () => {
               
               <motion.a 
                 whileHover={{ scale: 1.05 }}
-                href="#"
+                href="/UDAY-GUPTA-RESUME-CSE.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-portfolio-blue hover:text-portfolio-light-blue transition-colors group"
               >
                 <BookOpen size={18} className="group-hover:rotate-12 transition-transform" />
@@ -271,7 +273,7 @@ const Home = () => {
                 }}
               >
                 <div className="text-xl font-bold font-montserrat">Computer Science</div>
-                <div className="text-portfolio-blue font-medium">CGPA 8.5</div>
+                <div className="text-portfolio-blue font-medium">CGPA 8.2</div>
               </motion.div>
               
               <motion.div 
