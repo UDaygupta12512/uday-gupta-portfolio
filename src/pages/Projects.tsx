@@ -26,7 +26,7 @@ const Projects: React.FC = () => {
         <AnimatedElement animation="fade-up" className="w-full mt-12">
           <Tabs defaultValue="all" className="w-full">
             <div className="flex justify-center mb-8">
-              <TabsList className="bg-portfolio-dark-blue/50 backdrop-blur-md">
+              <TabsList className="bg-muted/50 backdrop-blur-md">
                 <TabsTrigger value="all" className="text-sm md:text-base">All Projects</TabsTrigger>
                 <TabsTrigger value="web" className="text-sm md:text-base">Web Dev</TabsTrigger>
                 <TabsTrigger value="ai" className="text-sm md:text-base">AI/ML</TabsTrigger>

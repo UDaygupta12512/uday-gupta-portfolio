@@ -43,8 +43,8 @@ const Layout = () => {
 
   return (
     <div className="min-h-screen flex flex-col font-poppins relative">
-      {/* Enhanced background with animated particles */}
-      <div className="fixed inset-0 pointer-events-none z-[-1]">
+      {/* Enhanced background with animated particles - only in dark mode */}
+      <div className="fixed inset-0 pointer-events-none z-[-1] dark:block hidden">
         {/* Base texture layer */}
         <div className="absolute inset-0 bg-grid-pattern opacity-30"></div>
         
@@ -84,6 +84,9 @@ const Layout = () => {
         <div className="absolute top-1/4 left-1/4 w-1/3 h-1/3 bg-portfolio-blue/10 rounded-full blur-[100px]"></div>
         <div className="absolute bottom-1/4 right-1/4 w-1/3 h-1/3 bg-portfolio-accent-purple/10 rounded-full blur-[100px]"></div>
       </div>
+      
+      {/* Light mode background */}
+      <div className="fixed inset-0 pointer-events-none z-[-1] dark:hidden block bg-gradient-to-br from-slate-50 to-slate-100"></div>
       
       <Navbar />
       <main className="flex-grow">

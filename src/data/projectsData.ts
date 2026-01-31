@@ -77,13 +77,13 @@ export const projects: Project[] = [
     categories: ["web", "mobile"]
   },
   {
-    title: "E-commerce Platform",
-    description: "A full-stack e-commerce solution with product catalog, shopping cart, user authentication, and payment processing. Features responsive design for all devices.",
-    technologies: ["Next.js", "MongoDB", "Stripe API"],
-    githubLink: "https://github.com/UDaygupta12512/course-alchemy-ai",
+    title: "Mindsphere AI",
+    description: "Built an AI-powered platform that converts YouTube videos and PDFs into complete micro-courses, improving content creation speed by 60% through automated notes, quizzes, and flashcards. Designed a clean React dashboard that enabled iterative refinement, reducing manual editing workload by 45%, through exportable course formats and an integrated intelligent assistant.",
+    technologies: ["MERN Stack", "Tailwind CSS", "TypeScript"],
+    githubLink: "https://github.com/UDaygupta12512/Mindsphere--AI",
     color: "#10b981",
-    image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=800&h=500",
-    categories: ["web"]
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&h=500",
+    categories: ["ai", "web"]
   },
   {
     title: "Portfolio Website",

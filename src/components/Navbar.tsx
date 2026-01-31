@@ -39,13 +39,13 @@ const Navbar = () => {
   return (
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-portfolio-dark-blue/90 dark:bg-portfolio-dark-mode-bg/90 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-5'
+        isScrolled ? 'bg-background/90 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-5'
       }`}
     >
       <div className="container flex justify-between items-center">
         <NavLink to="/" className="text-2xl font-bold flex items-center gap-2">
           <span className="gradient-text">UG</span>
-          <span className="text-white dark:text-white">Portfolio</span>
+          <span className="text-foreground">Portfolio</span>
         </NavLink>
 
         {/* Desktop Navigation */}
@@ -56,7 +56,7 @@ const Navbar = () => {
               to={link.path}
               className={({ isActive }) => 
                 `text-sm font-medium transition-colors hover:text-portfolio-blue ${
-                  isActive ? 'text-portfolio-blue' : 'text-white dark:text-white'
+                  isActive ? 'text-portfolio-blue' : 'text-foreground'
                 }`
               }
             >
@@ -77,7 +77,7 @@ const Navbar = () => {
           <ThemeToggle />
           <button 
             onClick={toggleMenu} 
-            className="text-white"
+            className="text-foreground"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
@@ -95,7 +95,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-portfolio-dark-blue/95 dark:bg-portfolio-dark-mode-bg/95 backdrop-blur-md absolute w-full py-4 shadow-lg">
+        <div className="md:hidden bg-background/95 backdrop-blur-md absolute w-full py-4 shadow-lg">
           <div className="container flex flex-col space-y-4">
             {navLinks.map(link => (
               <NavLink 
@@ -104,7 +104,7 @@ const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className={({ isActive }) => 
                   `p-2 rounded-md transition-colors ${
-                    isActive ? 'bg-muted text-portfolio-blue' : 'text-white dark:text-white hover:bg-muted/50'
+                    isActive ? 'bg-muted text-portfolio-blue' : 'text-foreground hover:bg-muted/50'
                   }`
                 }
               >
