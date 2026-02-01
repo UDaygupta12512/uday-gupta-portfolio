@@ -55,7 +55,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       }}
     >
       <Card 
-        className="frost-card overflow-hidden rounded-xl border-white/5 h-full flex flex-col"
+        className="frost-card overflow-hidden rounded-xl border-border/50 dark:border-white/5 h-full flex flex-col bg-card"
       >
         <div className="relative w-full h-48 overflow-hidden">
           {project.image ? (
@@ -103,14 +103,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <CardContent className="p-6 space-y-4 relative flex-grow flex flex-col">
           <h3 className="text-2xl font-bold font-montserrat">
             <div className="inline-block relative">
-              <span className="gradient-text bg-clip-text text-transparent bg-gradient-to-r from-white to-portfolio-light-blue">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-foreground to-portfolio-blue dark:from-white dark:to-portfolio-light-blue">
                 {project.title}
               </span>
               <div className="absolute -bottom-1 left-0 w-0 h-[2px] bg-portfolio-blue transition-all duration-500 group-hover:w-full"></div>
             </div>
           </h3>
           
-          <p className="text-muted-foreground transition-opacity duration-500 group-hover:text-white/90 line-clamp-3">
+          <p className="text-muted-foreground transition-opacity duration-500 group-hover:text-foreground/90 line-clamp-3">
             {project.description}
           </p>
           
@@ -121,7 +121,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 <Badge 
                   key={i}
                   variant="secondary"
-                  className="bg-white/10 hover:bg-portfolio-blue/50 text-white border-none transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5"
+                  className="bg-portfolio-blue/20 dark:bg-white/10 hover:bg-portfolio-blue/50 text-foreground dark:text-white border border-portfolio-blue/30 dark:border-white/10 transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5"
                 >
                   {tech}
                 </Badge>
