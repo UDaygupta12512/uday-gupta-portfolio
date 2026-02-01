@@ -60,7 +60,7 @@ export const projects: Project[] = [
   },
   {
     title: "Course Alchemy",
-    description: "A dynamic news aggregation platform that delivers the latest updates across various categories. Features include live news updates, content filtering, and article search functionality.",
+    description: "Built an AI-powered course generation platform that transforms raw educational content into structured, interactive learning modules. Features intelligent content organization, quiz generation, and progress tracking for personalized learning experiences.",
     technologies: ["ReactJS", "API Integration", "JavaScript"],
     githubLink: "https://github.com/UDaygupta12512/course-alchemy-ai",
     color: "#0f172a",
@@ -69,7 +69,7 @@ export const projects: Project[] = [
   },
   {
     title: "Meta World",
-    description: "A feature-rich task management application with drag-and-drop functionality, priority levels, and deadline reminders. Helps users organize their work efficiently.",
+    description: "Developed an immersive metaverse learning platform that combines virtual reality concepts with educational content. Features 3D interactive environments, collaborative learning spaces, and gamified progression systems for enhanced engagement.",
     technologies: ["React", "TypeScript", "Firebase"],
     githubLink: "https://github.com/UDaygupta12512/meta-learn-worlds-ai",
     color: "#8b5cf6",
