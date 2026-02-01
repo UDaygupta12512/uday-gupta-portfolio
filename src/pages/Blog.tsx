@@ -1,8 +1,9 @@
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import SectionHeading from '../components/SectionHeading';
 import AnimatedElement from '../components/AnimatedElement';
-import { FileText } from 'lucide-react';
+import { FileText, ArrowRight } from 'lucide-react';
 
 interface BlogPost {
   id: number;
@@ -175,12 +176,13 @@ const Blog = () => {
                 
                 <div className="flex justify-between items-center">
                   <span className="text-xs text-muted-foreground">{post.date}</span>
-                  <span 
-                    className="text-portfolio-blue text-sm font-medium cursor-default opacity-70"
-                    title="Coming soon"
+                  <Link 
+                    to={`/blog/${post.id}`}
+                    className="text-portfolio-blue hover:text-portfolio-light-blue text-sm font-medium flex items-center gap-1 transition-colors"
                   >
-                    Coming Soon
-                  </span>
+                    Read Article
+                    <ArrowRight size={14} />
+                  </Link>
                 </div>
               </div>
             </AnimatedElement>

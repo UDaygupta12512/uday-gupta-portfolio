@@ -15,6 +15,7 @@ import Certifications from "./pages/Certifications";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 
 // Create a query client with error handling configuration
 const queryClient = new QueryClient({
@@ -41,6 +42,7 @@ const App = () => (
               <Route path="projects" element={<Projects />} />
               <Route path="certifications" element={<Certifications />} />
               <Route path="blog" element={<Blog />} />
+              <Route path="blog/:id" element={<BlogPost />} />
               <Route path="contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Route>
