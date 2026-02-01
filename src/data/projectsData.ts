@@ -59,7 +59,7 @@ export const projects: Project[] = [
     categories: ["web"]
   },
   {
-    title: "News App",
+    title: "Course Alchemy",
     description: "A dynamic news aggregation platform that delivers the latest updates across various categories. Features include live news updates, content filtering, and article search functionality.",
     technologies: ["ReactJS", "API Integration", "JavaScript"],
     githubLink: "https://github.com/UDaygupta12512/course-alchemy-ai",
@@ -68,7 +68,7 @@ export const projects: Project[] = [
     categories: ["web", "mobile"]
   },
   {
-    title: "Task Manager",
+    title: "Meta World",
     description: "A feature-rich task management application with drag-and-drop functionality, priority levels, and deadline reminders. Helps users organize their work efficiently.",
     technologies: ["React", "TypeScript", "Firebase"],
     githubLink: "https://github.com/UDaygupta12512/meta-learn-worlds-ai",
