@@ -171,6 +171,9 @@ const About = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 bg-portfolio-blue hover:bg-portfolio-light-blue text-white px-6 py-3 rounded-md transition-colors group"
+                      onClick={() => {
+                        window.open('/UDAY-GUPTA-RESUME-CSE.pdf', '_blank', 'noopener,noreferrer');
+                      }}
                     >
                       <FileText size={18} className="group-hover:rotate-12 transition-transform" />
                       <span>Download Resume</span>
