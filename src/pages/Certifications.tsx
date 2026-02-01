@@ -100,7 +100,7 @@ const Certifications: React.FC = () => {
                 className="h-full"
               >
                 <Card 
-                  className="glass-card h-full overflow-hidden rounded-xl transition-all duration-500 hover:translate-y-[-12px] hover:shadow-2xl border-white/5 bg-white/5 backdrop-blur-sm fade-in group"
+                  className="glass-card h-full overflow-hidden rounded-xl transition-all duration-500 hover:translate-y-[-12px] hover:shadow-2xl border-border bg-card backdrop-blur-sm fade-in group"
                   style={{ 
                     boxShadow: `0 10px 30px -15px ${cert.logoColor}40`,
                   }}
@@ -122,13 +122,13 @@ const Certifications: React.FC = () => {
                         />
                       </div>
                       <div>
-                        <h3 className="text-lg font-bold font-montserrat">{cert.provider}</h3>
+                        <h3 className="text-lg font-bold font-montserrat text-foreground">{cert.provider}</h3>
                         <p className="text-muted-foreground text-sm">{cert.name}</p>
                       </div>
                       {cert.year && (
                         <Badge 
                           variant="secondary" 
-                          className="ml-auto bg-white/10 text-white border-none"
+                          className="ml-auto bg-primary/10 text-foreground border-none"
                         >
                           {cert.year}
                         </Badge>
@@ -146,7 +146,7 @@ const Certifications: React.FC = () => {
                         {cert.skills.map((skill, idx) => (
                           <Badge 
                             key={idx} 
-                            className="bg-white/10 text-white hover:bg-white/20"
+                            className="bg-primary/10 text-foreground hover:bg-primary/20"
                           >
                             {skill}
                           </Badge>

@@ -231,13 +231,8 @@ const Home = () => {
               <motion.a 
                 whileHover={{ scale: 1.05 }}
                 href="/UDAY-GUPTA-RESUME-CSE.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+                download="UDAY-GUPTA-RESUME-CSE.pdf"
                 className="inline-flex items-center gap-2 text-portfolio-blue hover:text-portfolio-light-blue transition-colors group"
-                onClick={() => {
-                  // Ensure reliable open across SPA routing / preview iframe
-                  window.open('/UDAY-GUPTA-RESUME-CSE.pdf', '_blank', 'noopener,noreferrer');
-                }}
               >
                 <BookOpen size={18} className="group-hover:rotate-12 transition-transform" />
                 <span>Resume</span>
