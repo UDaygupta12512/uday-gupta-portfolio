@@ -170,8 +170,6 @@ const About = () => {
                   <div className="mt-8 flex flex-wrap gap-4">
                     <a 
                       href="/UDAY-GUPTA-RESUME-CSE.pdf" 
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 bg-portfolio-blue hover:bg-portfolio-light-blue text-white px-6 py-3 rounded-md transition-colors group"
                     >
                       <FileText size={18} className="group-hover:rotate-12 transition-transform" />
