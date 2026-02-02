@@ -14,6 +14,7 @@ const Contact = () => {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showEmailFallback, setShowEmailFallback] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -23,35 +24,42 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setShowEmailFallback(false);
     
     // Using EmailJS to send the form
-    emailjs.sendForm(
-      'service_8r6g19a', 
-      'template_agmcdny', 
-      form.current!, 
-      'uTyP5_5RZIKNfMLkY'
-    )
-      .then((result) => {
-        toast({
-          title: "Message sent successfully!",
-          description: "Thank you for reaching out. I'll get back to you shortly.",
-        });
-        setFormData({ name: '', email: '', message: '' });
-      })
-      .catch((error) => {
-        console.error('EmailJS error:', error);
-        toast({
-          title: "Error sending message",
-          description: "There was a problem sending your message. Please try again.",
-          variant: "destructive",
-        });
-      })
-      .finally(() => {
-        setIsSubmitting(false);
+    try {
+      await emailjs.sendForm(
+        'service_8r6g19a',
+        'template_agmcdny',
+        form.current!,
+        'uTyP5_5RZIKNfMLkY'
+      );
+
+      toast({
+        title: 'Message sent successfully!',
+        description: "Thank you for reaching out. I'll get back to you shortly.",
       });
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error: any) {
+      console.error('EmailJS error:', error);
+      setShowEmailFallback(true);
+
+      const details =
+        error?.text ||
+        error?.message ||
+        'Your browser/network may be blocking EmailJS. Please try again or email me directly.';
+
+      toast({
+        title: 'Error sending message',
+        description: details,
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -151,6 +159,19 @@ const Contact = () => {
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
+
+              {showEmailFallback && (
+                <div className="text-sm text-muted-foreground">
+                  If this keeps failing, email me at{' '}
+                  <a
+                    className="underline underline-offset-4 hover:text-portfolio-blue"
+                    href="mailto:udayapril22@gmail.com"
+                  >
+                    udayapril22@gmail.com
+                  </a>
+                  .
+                </div>
+              )}
             </form>
           </div>
           

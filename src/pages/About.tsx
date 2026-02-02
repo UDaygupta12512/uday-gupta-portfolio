@@ -6,6 +6,8 @@ import { Badge } from '@/components/ui/badge';
 import AnimatedElement from '../components/AnimatedElement';
 import { motion } from 'framer-motion';
 
+const RESUME_URL = 'https://uday-gupta-portfolio.lovable.app/UDAY-GUPTA-RESUME-CSE.pdf';
+
 const About = () => {
   const navigate = useNavigate();
   const floatAnimation = {
@@ -169,7 +171,9 @@ const About = () => {
                   
                   <div className="mt-8 flex flex-wrap gap-4">
                     <a 
-                      href="/UDAY-GUPTA-RESUME-CSE.pdf" 
+                      href={RESUME_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 bg-portfolio-blue hover:bg-portfolio-light-blue text-white px-6 py-3 rounded-md transition-colors group"
                     >
                       <FileText size={18} className="group-hover:rotate-12 transition-transform" />
