@@ -12,21 +12,12 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "Dream Builder",
-    description: "Built an AI-powered platform that transforms user-submitted game ideas into detailed, production-ready game design documents using GPT-4.5. Designed a sleek and interactive UI with React and Tailwind CSS, allowing iterative refinement and collaborative editing of design documents.",
-    technologies: ["Python", "GPT-4.5", "React", "Tailwind CSS", "Firebase"],
-    githubLink: "https://github.com/UDaygupta12512/mind-to-game-forge",
-    color: "#8b5cf6",
-    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&h=500",
-    categories: ["ai", "web"]
-  },
-  {
     title: "AI Podcast Creation",
     description: "Developed an AI-driven podcast generator that creates full-length podcast episodes using GPT-4.5 for content scripting and ElevenLabs for lifelike voice synthesis. Integrated Firebase for real-time episode storage, user libraries, and content personalization based on listening history.",
     technologies: ["HTML", "JavaScript", "ReactJS", "Tailwind CSS", "Firebase", "ElevenLabs"],
     githubLink: "https://github.com/UDaygupta12512/Podcast-Generation",
     color: "#10b981",
-    image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&h=500",
+    image: "https://images.unsplash.com/photo-1589903308904-1010c2294adc?auto=format&fit=crop&w=800&h=500",
     categories: ["ai", "web"]
   },
   {
@@ -35,7 +26,7 @@ export const projects: Project[] = [
     technologies: ["React JS", "Python", "DALL·E", "React", "Tailwind CSS"],
     githubLink: "https://github.com/UDaygupta12512/Kids-Story",
     color: "#f59e0b",
-    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=800&h=500",
+    image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=800&h=500",
     categories: ["ai", "web"]
   },
   {
@@ -45,7 +36,7 @@ export const projects: Project[] = [
     githubLink: "https://github.com/UDaygupta12512/sorting-visualizer",
     liveLink: "https://github.com/UDaygupta12512/sorting-visualizer",
     color: "#60a5fa",
-    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&h=500",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&h=500",
     categories: ["ai", "web"]
   },
   {
@@ -55,16 +46,16 @@ export const projects: Project[] = [
     githubLink: "https://github.com/UDaygupta12512/weather-app",
     liveLink: "https://github.com/UDaygupta12512/weather-app",
     color: "#3b82f6",
-    image: "https://images.unsplash.com/photo-1561484930-998b6a7b22e8?auto=format&fit=crop&w=800&h=500",
+    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=800&h=500",
     categories: ["web"]
   },
   {
     title: "Course Alchemy",
     description: "Built an AI-powered course generation platform that transforms raw educational content into structured, interactive learning modules. Features intelligent content organization, quiz generation, and progress tracking for personalized learning experiences.",
     technologies: ["ReactJS", "API Integration", "JavaScript"],
-    githubLink: "https://github.com/UDaygupta12512/course-alchemy-ai",
+    githubLink: "https://github.com/UDaygupta12512/course-alchemy-ai-web",
     color: "#0f172a",
-    image: "https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=800&h=500",
+    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&h=500",
     categories: ["web", "mobile"]
   },
   {
