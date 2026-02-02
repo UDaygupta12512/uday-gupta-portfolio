@@ -1,4 +1,5 @@
 
+import { useNavigate } from 'react-router-dom';
 import SectionHeading from '../components/SectionHeading';
 import { FileText, GraduationCap, Award, Briefcase, Code, Book, Target } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -6,6 +7,7 @@ import AnimatedElement from '../components/AnimatedElement';
 import { motion } from 'framer-motion';
 
 const About = () => {
+  const navigate = useNavigate();
   const floatAnimation = {
     y: [0, -10, 0],
     transition: {
@@ -168,20 +170,21 @@ const About = () => {
                   <div className="mt-8 flex flex-wrap gap-4">
                     <a 
                       href="/UDAY-GUPTA-RESUME-CSE.pdf" 
-                      download="UDAY-GUPTA-RESUME-CSE.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 bg-portfolio-blue hover:bg-portfolio-light-blue text-white px-6 py-3 rounded-md transition-colors group"
                     >
                       <FileText size={18} className="group-hover:rotate-12 transition-transform" />
-                      <span>Download Resume</span>
+                      <span>View Resume</span>
                     </a>
                     
-                    <a 
-                      href="#skills" 
+                    <button 
+                      onClick={() => navigate('/skills')}
                       className="inline-flex items-center gap-2 bg-transparent border border-portfolio-blue text-portfolio-blue hover:bg-portfolio-blue/10 px-6 py-3 rounded-md transition-colors group"
                     >
                       <Code size={18} className="group-hover:rotate-12 transition-transform" />
                       <span>View My Skills</span>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
