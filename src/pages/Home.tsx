@@ -231,8 +231,6 @@ const Home = () => {
               <motion.a 
                 whileHover={{ scale: 1.05 }}
                 href="/UDAY-GUPTA-RESUME-CSE.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-portfolio-blue hover:text-portfolio-light-blue transition-colors group"
               >
                 <BookOpen size={18} className="group-hover:rotate-12 transition-transform" />
