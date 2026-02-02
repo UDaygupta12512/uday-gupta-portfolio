@@ -6,6 +6,8 @@ import { ExternalLink, Code, Briefcase, BookOpen } from 'lucide-react';
 import AnimatedTitle from '@/components/AnimatedTitle';
 import AnimatedElement from '@/components/AnimatedElement';
 
+const RESUME_URL = 'https://uday-gupta-portfolio.lovable.app/UDAY-GUPTA-RESUME-CSE.pdf';
+
 const Home = () => {
   // Animation variants
   const containerVariants = {
@@ -230,7 +232,9 @@ const Home = () => {
               
               <motion.a 
                 whileHover={{ scale: 1.05 }}
-                href="/UDAY-GUPTA-RESUME-CSE.pdf"
+                href={RESUME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-portfolio-blue hover:text-portfolio-light-blue transition-colors group"
               >
                 <BookOpen size={18} className="group-hover:rotate-12 transition-transform" />
