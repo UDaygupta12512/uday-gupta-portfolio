@@ -30,13 +30,12 @@ export const projects: Project[] = [
     categories: ["ai", "web"]
   },
   {
-    title: "Sorting Visualizer",
-    description: "An interactive tool that visualizes various sorting algorithms in action, helping users understand how different sorting methods work and compare their performance.",
-    technologies: ["Python", "Pygame", "Tkinter"],
-    githubLink: "https://github.com/UDaygupta12512/sorting-visualizer",
-    liveLink: "https://github.com/UDaygupta12512/sorting-visualizer",
-    color: "#60a5fa",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&h=500",
+    title: "Cook Assistant",
+    description: "An AI-powered cooking assistant that helps users discover recipes, plan meals, and get step-by-step cooking guidance. Features intelligent ingredient-based recipe suggestions, dietary preference filtering, and interactive cooking timers for a seamless kitchen experience.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "AI Integration"],
+    githubLink: "https://github.com/UDaygupta12512/cook-assistant-new",
+    color: "#ef4444",
+    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&h=500",
     categories: ["ai", "web"]
   },
   {
